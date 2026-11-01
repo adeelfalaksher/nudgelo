@@ -28,7 +28,7 @@ export function createScene(host,kind,values){
     for(const [i,c] of ['a','b'].entries()){
       const x=155+i*210;drawing+=`<rect x="${x}" y="119" width="142" height="240" rx="8" fill="#e8eee8" stroke="#a4b8aa" stroke-width="3"/><rect x="${x+3}" y="174" width="136" height="179" fill="#c0d6ce"/><path d="M${x} 174h142" stroke="#759e8a" stroke-width="2"/>`;
       for(let n=0;n<10;n++)drawing+=`<path d="M${x+125} ${180+n*17}h${n%3?9:14}" stroke="#7e9d8e"/>`;
-      drawing+=`<g data-block="${c}"><path d="M${x+38} 125h48l18 12h-48Z" fill="${i?'#d5b374':'#7ca791'}"/><path d="M${x+56} 137h48v42h-48Z" fill="${i?'#bd914d':'#4f7b63'}"/><path d="M${x+38} 125l18 12v42l-18-12Z" fill="${i?'#926f35':'#355841'}"/><text x="${x+79}" y="165" text-anchor="middle" fill="#fff" font-size="20" font-weight="600">${c.toUpperCase()}</text></g><rect x="${x-5}" y="112" width="152" height="9" rx="4" fill="#bacabd"/>`;
+      drawing+=`<g data-block="${c}"><path d="M${x+38} 125h48l18 12h-48Z" fill="${i?'#d5b374':'#7ca791'}"/><path d="M${x+56} 137h48v42h-48Z" fill="${i?'#bd914d':'#4f7b63'}"/><path d="M${x+38} 125l18 12v42l-18-12Z" fill="${i?'#926f35':'#355841'}"/><text x="${x+79}" y="165" text-anchor="middle" fill="${i?'#1b2420':'#fff'}" font-size="20" font-weight="600">${c.toUpperCase()}</text></g><rect x="${x-5}" y="112" width="152" height="9" rx="4" fill="#bacabd"/>`;
     }
     drawing+=`<text x="320" y="78" text-anchor="middle" fill="#536353" font-size="16">Liquid · ${p.fluid} kg/m³</text>`;
   }
