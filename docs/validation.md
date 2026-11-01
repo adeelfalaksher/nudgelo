@@ -1,56 +1,61 @@
 # Validation and release evidence
 
-Reviewed November 1, 2026. This is bounded engineering evidence, not an accessibility or security certification.
+Reviewed November 1, 2026. These are bounded engineering checks, not accessibility/security certification or evidence of a live Twitch channel session.
 
-## Completed checks
+## Release
 
-- **17 Node tests passed**, zero failures: small angle mass/length invariants, stopping distance, neutral buoyancy, numerical trust boundaries, exact command parsing, round state transitions, duplicate and stale votes, anonymous import/export, OAuth state and client mismatch, official reconnect address restriction and notification admission.
-- **15 browser journeys passed**: actual Home instrument motion; local changed prediction and locked values through run/reveal/save; anonymous download; Stage view and Escape exit; friction run; buoyancy run; invalid import rejection; reduced motion; controlled EventSub flow with real browser fetch and a fixture WebSocket. The last test validates subscription payload, duplicate delivery, changed vote, a second user, disabled local voting during a Twitch round and connection-loss closure. It is a fixture, not an actual Twitch account test.
-- **40 route/width combinations**, no document horizontal overflow: Home, Studio, guided pendulum, Guide and Privacy at 320, 360, 390, 430, 768, 1024, 1440 and 1920 CSS px. Resized browser, not physical phones or mobile Safari.
-- **8 axe-core 4.11.0 states**, zero detected WCAG-tagged violations: Home, predictions open, result, stage, connection dialog, controlled comparison, mobile studio and guide. Incomplete contrast items remain in seven states; five also have an incomplete aria-prohibited-attr check. An incomplete is not a pass. Real assistive technology testing and a full manual audit remain outstanding.
-- **npm audit**, including dev dependencies: zero known advisories at check time. No runtime package is loaded by the static website. Package audit is not proof of absence of vulnerabilities.
+- Source PR: [#4](https://github.com/adeelfalaksher900-creator/trialroom/pull/4), merged as `f7667d07e0461a3cbe635a1ab6c583a2c6c3f3d9`.
+- Required CI: [Checks 41323583203](https://github.com/adeelfalaksher900-creator/trialroom/actions/runs/41323583203), job `model-and-integration`. Every step completed successfully, including npm ci, Node tests, audit and browser checks.
+- Protected Preview: `dpl_J2g1YFkqggqntmz486NAE5YxqZ2Q`, target staging, READY. Its complete four-move Synchronize mission was exercised in the owner's connected Chrome browser.
+- Production: `dpl_HZdwy7FGE7ubnWpxMMR3vPT2aYRr`, target production, READY. Canonical alias: https://trialroom-live.vercel.app/ . Source metadata points to the merged commit above; build took 1,770 ms.
+- Vercel source API returned 19 source files. Every SHA-1 content identifier matched the tested local file, including all 18 public files and vercel.json. This is a deployment-source comparison, not a claim that 19 files were independently downloaded from the public CDN.
+- Existing SSO protection remains enabled with `all_except_custom_domains`. No bypass, share token or disabled browser security was used.
 
-The expanded checks cover the guided mass question, calculated plot, recap, a one-variable retest, comparison measurements, notebook parameter restore, keyboard disclosure and skip link, and a Twitch fixture recap using unique voters rather than message volume. New pure tests cover empty prediction statistics, multi-variable comparison honesty and retest bounds. The skip link initially failed a browser regression by changing the hash to #main; it now focuses the existing main element without changing the route.
+## Automated evidence
 
-The real browser test caught a native fetch binding error in the Twitch adapter: calling Window.fetch with the connection object as receiver throws Illegal invocation. The fetcher is now explicitly bound to globalThis. The fixture test reproduces the browser path, so the fix is not inferred from Node mocks alone. A text contrast issue was also corrected before the passing run.
+| Check | Result | Scope |
+| --- | --- | --- |
+| Node tests | 26 passed | Physics, mission goals, bounds, state transitions, votes, import/export, OAuth and protocol guards |
+| Browser journeys | 25 passed | Actual local UI, complete studio/game flows and controlled Twitch fixtures |
+| Responsive combinations | 64 passed | Eight routes at 320, 360, 390, 430, 768, 1024, 1440 and 1920 CSS px |
+| axe-core states | 12, no detected tagged violations | WCAG2A/AA and WCAG2.1AA tags; incomplete checks remain |
+| Dependency audit | 0 known advisories | Runtime and development dependency audit at check time |
+| Static secret patterns | 0 findings | Limited private-key, GitHub-token and AWS-key patterns in public/test code |
 
-GitHub Actions independently completed the same release checks successfully for source commit `20b1483e7e8757c8a91bd6dde4e90eb2b63ad2a0`: npm ci, Node tests, production dependency audit and browser journeys. See [Checks run 41300485415](https://github.com/adeelfalaksher900-creator/trialroom/actions/runs/41300485415). The status API's empty legacy status list was not treated as a passing check; the completed Actions run and its successful job steps were inspected.
+See [browser-report.json](browser-report.json). Eleven axe states have incomplete color-contrast checks; five also have incomplete aria-prohibited-attr checks. Incomplete is not a pass. Physical phones, real mobile Safari and VoiceOver/NVDA have not been tested.
 
-## Production observation
+Game journeys verify empty ballots, a four-action synchronization win, three-action precision braking, two-action neutral buoyancy, a five-action mass-only loss, anonymous action downloads, Stage commands, navigation cancellation, and controlled EventSub ties/duplicate delivery/C-command/disconnect cancellation. The free studio's original predictions, guided retest, actual comparison, notebook and invalid-import checks remain passing.
 
-Vercel project `prj_X7DJhJhnNN9ghI0xWLxnpa9WNned`, team `team_puESbhvNZtjIIvtZyWxiNYhm`. First deployment `dpl_4jBwha1BWW2PsAYqY6u8wTVsaRBY` reached READY. Although created with no target as a candidate, Vercel assigned the first project deployment to Production. This is reported as Production, not as a protected Preview. Project SSO protection remains all_except_custom_domains; no protection bypass or share token was created.
+The browser test initially caught a native fetch receiver bug in the Twitch adapter. The expanded game run also exposed a test-fixture error: same-document hash navigation did not reset a deliberately disconnected fake connection. Reloading the controlled fixture corrected that test setup. Neither issue is hidden as a passing test before correction.
 
-The public site was independently opened in the user's connected Chrome browser. A local practice A prediction completed the pendulum round; it revealed A at 1.794 s and B at 2.198 s per swing. The console read returned no captured errors/warnings. This verifies a deployed local-practice journey, not authenticated Twitch traffic.
+## Deployed interaction evidence
 
-The canonical public URL is https://trialroom-live.vercel.app/. Its deployment alias was verified against this project and deployment. Independent HTTPS requests returned HTTP 200 and an index identical to the local public/index.html. The deployed twitch.js also exactly matches the tested file (SHA-256 `57851de742021e7c33a79e38afdd76f42c45c4acca58a2f583086e039376d1eb`). Live responses include CSP, nosniff, no-referrer, frame denial and disabled camera/microphone/geolocation permissions. The interactive Chrome journey above ran on the same deployment's original alias; the canonical alias was checked over HTTPS, not represented as a second completed Chrome journey.
+**Preview, connected Chrome, mobile layout:** open Synchronize, vote A, lock, apply, repeat four times. Length A changed 0.4 → 0.6 → 0.8 → 1.0 → 1.2 m. The measured A periods changed 1.269 → 1.554 → 1.794 → 2.006 → 2.198 seconds; B stayed 2.198. Final difference 0.0%, mission complete, one move left. [Actual capture](assets/review/08-preview-mission-complete.png).
 
-## Security scope
+**Production, connected Chrome:** open Neutral buoyancy, use two A actions. Density B changed 1200 → 1100 → 1000 kg/m³ against liquid density 1000. The ratio changed 1.20 → 1.10 → 1.00. The mission completed with three moves left. Stage view displayed the neutral block, measured target and A/B/C commands; host controls were hidden. [Actual capture](assets/review/09-production-neutral-buoyancy.png).
 
-No token or Client Secret is stored in source, exports, localStorage or server storage. The public Client ID is not a secret. Token validation is startup/hourly, with explicit error and reconnect states. Only read chat is requested; the app never sends chat or wagers. Exact command parser and channel subscription guards are tested. Imports are bounded and normalized. CSP and standard browser security headers are configured in vercel.json and observed on the live deployment. No private user dataset or paid API was used.
+The returned Production console feed contained one ordinary log from the browser extension and no application-script error. This describes that captured feed only.
 
-## What remains
+A separate terminal attempt to run the entire browser suite against the public host failed immediately with `net::ERR_EMPTY_RESPONSE`; Python HTTPS requests failed at the environment's proxy CONNECT. No public-suite pass, fresh HTTP-header probe or exposed-file scan is claimed from those attempts. The connected-browser journeys above did complete successfully, and the authenticated Vercel source comparison matched all files. The full automated suite passed locally and independently in GitHub Actions.
 
-- Twitch Developer Console shows a sign-in wall. An actual registered client, owner authorization and real chat round remain necessary before claiming the main Twitch requirement is verified.
-- Chrome reconnected during the guided release review. The existing Twitch login tab still requires the owner’s sign-in. A different browser was not used to evade authentication.
-- GitHub now displays “Branch protection rule created” for main. Its saved rule requires pull requests and resolved conversations, applies to administrators, and does not allow force pushes or deletions. The model-and-integration check is now required with an up-to-date branch; GitHub confirmed “Branch protection rule settings saved.” No existing protection was disabled.
-- Devpost registration is not complete. It asks personal travel/experience answers and explicit agreement to rules and eligibility. No answers or legal agreement are invented. Text and thumbnail are prepared; they are not called an uploaded hackathon draft without a successful save.
-- Physical phones, VoiceOver/NVDA, independent penetration testing and real streamer/user research are unverified.
-- The final under-three-minute video must show real Twitch operation and Codex build footage. Video and 15-image gallery remain deferred for owner review.
+## Security and data boundaries
 
-## Tool provenance
+No token or Client Secret is included in source, localStorage or exports. Only read-chat permission is requested. OAuth state is random, single-use and time-limited; tokens are validated on connection and hourly. Exact official reconnect origins, channel/subscription/user guards, freshness and delivery limits are tested. Raw chat never renders as HTML. Anonymous studio imports are bounded and recomputed; mission downloads contain counts and model changes, not identities.
 
-Mobbin references were actually viewed; see design notes. 12ui draft stopped at sign in before a hosted generation. Original SVG figures apply Anatomy construction/motion guidance, but no kit geometry audit is claimed. Agent-Reach executed on VON and read the official EventSub documentation with its Jina web backend (ok true, retained JSON on the device). Its first public-web backend attempt was rejected by the installed version and was corrected using the advertised channel list. REA's original guide says to skip REA for ordinary analysis of a complete source repository; normal source tools and browser evidence are used here, rather than pretending a reverse engineering run improved newly authored code. Previously removed paid-key apps were not reinstalled. No final video software run is claimed.
+CSP, nosniff, no-referrer, frame denial and disabled camera/microphone/geolocation permissions are configured in the deployed vercel.json. Fresh direct HTTP header/probe verification was blocked by the terminal network environment. Dependency audit and static pattern checks are not comprehensive penetration testing.
 
-## Guided release CI
+Main remains protected: pull requests, up-to-date successful `model-and-integration`, resolved conversations, administrator enforcement, no force pushes or deletions. PR4 merged through those protections.
 
-The guided release source commit 1323de93aeb249687ae4c96337b3ff8d5508a307 passed [Checks run 41307959856](https://github.com/adeelfalaksher900-creator/trialroom/actions/runs/41307959856). Every job step, including the expanded browser journeys, completed successfully. The new protected Preview dpl_5vfT3t54ks5sBg8oGBfbA6n1ngG3 reached READY. Its Home rendered in the connected Chrome browser; subsequent manual controls hit browser-driver CDP timeouts, so a complete manual Preview round is not claimed. An independent request to the preceding protected candidate returned a Vercel SSO redirect. No share link, protection bypass or disabled browser security was used.
+## Real Twitch blocker
 
-## Guided production verification
+The owner's Twitch console is signed in. Public application registration was prepared with Website Integration and exact Production redirect. Twitch rejected Create with “user must have two factor auth enabled to perform this action”. The owner must enable 2FA, then register/authorize the client before an actual chat-controlled mission can be verified. Fixtures are explicitly not live Twitch evidence. Authentication protections are not bypassed.
 
-PR2 merged as 80770360a5d377103738e836b6d7ff5b60451ca6 after required CI. The preview-promotion endpoint returned 422 for this Preview, so a fresh Production deployment was built from the exact same source instead: dpl_8w9csmH4H79XBzFvK23CKaYervye reached READY. The canonical trialroom-live.vercel.app alias was verified against that deployment. An independent HTTPS check downloaded all 13 public files: every file returned 200 and exactly matched the tested local source bytes. CSP, nosniff, no-referrer, frame denial and disabled camera/microphone/geolocation headers were present.
+## Devpost and media
 
-An independent cloud browser then verified the public website without signing into an account: guided mass question → local Same prediction → locked inputs → run → both periods 2.006 seconds; controlled retest → only A length 1 to 0.8 m → A prediction → run → A period 1.794 and B 2.006 seconds. The comparison table showed the actual previous and current measurements. The downloaded anonymous export contained two valid records, outcomes same/a and no tokens or voter/delivery identifiers. Restoring round one's settings returned to setup with both lengths 1 m, zero fresh predictions and the two saved records retained.
+Existing project 1522696 / submission 1277168 was updated, not duplicated. Name, tagline, full story, technologies and live/repository links were saved. Team type, repository URL, observed Codex session ID, technology explanation and community-use answer were saved in Additional info. Personal residence/surveys and legal attestations remain for the owner.
 
-The returned console feed contained browser-extension metadata errors from a chrome-extension origin. No Trialroom product-script error appeared in that returned feed. These extension messages are not represented as application failures or silently described as a completely error-free browser. Protected Preview manual controls timed out, but the independent public-site interactions above completed successfully. Actual authenticated Twitch remains unverified.
+The hackathon entry is visibly **Draft** and `submitted_at` is null. Devpost's project-save API made its separate portfolio record public at https://devpost.com/software/trialroom ; this is not a final hackathon submission. No final Submit button or rule-agreement checkbox was activated.
 
-Fresh live proof: [first reveal](assets/review/04-live-first-reveal.jpg), [changed result](assets/review/05-live-retest-reveal.jpg), [comparison](assets/review/06-live-comparison.jpg). These are real website captures, not generated images or gallery-production assets.
+The 3:2 thumbnail is an actual app screenshot, not generated functionality. Full-resolution source: 1536×1024 JPEG. A 768×512 upload variant was captured for the direct connector after the streaming upload hit a proxy timeout. Upload returned success with background processing; no successful upload was retried. Confirm its appearance on the draft before final submission.
+
+The final under-three-minute video must show actual Twitch operation and Codex build footage. Final video and 15-image gallery remain deferred for owner review. Team membership currently lists only the owner account; the second teammate still needs the owner's invitation/acceptance workflow.

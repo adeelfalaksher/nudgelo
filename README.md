@@ -117,4 +117,4 @@ The game uses ideal small-angle pendulums, constant kinetic friction and equilib
 
 Mobbin's Nike Run Club and Duolingo screens were actually inspected for large-readout hierarchy, focused controls, progress and completion feedback. Trialroom uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
 
-Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. Final video and 15-image gallery remain deferred for the owner's review. Devpost is prepared as a draft, never automatically submitted.
+Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. Final video and 15-image gallery remain deferred for the owner's review. The hackathon entry remains Draft and has not been submitted. Devpost separately made the saved portfolio project public; factual submission fields are saved, while personal/legal answers and teammate membership remain for the owner.

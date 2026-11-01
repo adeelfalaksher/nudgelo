@@ -1,62 +1,67 @@
 # Trialroom
 
-**Tagline:** Turn Twitch chat into a room full of scientists. Predict together, run the experiment, and find out why.
+**Tagline:** Your chat runs the lab. Five moves to solve a physics mission together—vote, change a real model input and discover what gets you to the target.
 
-**Draft state:** Prepared text, not yet saved on Devpost. Registration and real Twitch verification are pending. Do not submit this file as a claim that authenticated Twitch has been tested.
+**Saved status:** Story, technologies and links saved to project 1522696. Hackathon submission 1277168 remains Draft and unsubmitted. Devpost separately made the portfolio page public. Factual Additional info answers were saved; owner personal/legal answers remain. Thumbnail upload succeeded with background processing.
 
 ## Inspiration
 
-A good science stream gives the audience a reason to form a hypothesis before the answer appears. We wanted a streamer to ask a small, testable question and give chat a meaningful part in discovering the result. Research on NOVA's Twitch streams helped us choose science creators as the audience; it does not establish impact for our project.
+A poll can collect opinions while leaving the audience on the sidelines. We wanted chat to change what actually happens on a stream. Science gives that decision a clear consequence: change a physical input, see the model respond and find out whether the idea helped.
+
+Our first studio let people predict an outcome. Reviewing that flow exposed its weakness: the audience still had no control. We rebuilt the main experience around cooperative calibration missions while preserving the free experiment studio.
 
 ## What it does
 
-Trialroom is a browser experiment studio. A host chooses a pendulum, friction or buoyancy question, changes the parameters, opens a prediction window, then locks the choices and runs the model. The result includes calculated measurements, the equation and its assumptions. Guided questions help a new host begin. One-variable retests compare before/after measurements, while calculated SVG traces make the model visible. An anonymous notebook restores earlier settings with fresh predictions.
+Trialroom gives a Twitch community five moves to solve one shared physical problem. Viewers choose a control through `!trial a`, `!trial b` or `!trial c`. The unique most-voted action changes one bounded input. The instrument moves, the measurement updates and the group plans its next decision.
 
-Viewers participate with `!trial a`, `!trial b` or `!trial same`. One viewer has one current choice; a changed prediction replaces the earlier choice. No points or stakes are involved. A clearly labeled local practice mode runs without an account. Stage view can be captured with OBS Window Capture. Anonymous round records can be saved, downloaded and imported.
+Three missions are included: synchronize two pendulums, stop a sled inside a 1.40–1.70 metre target, and suspend a block at neutral buoyancy. Some tempting moves do not help; changing pendulum mass, for example, cannot fix its period in the ideal small-angle model. Buoyancy permits more than one valid strategy.
+
+The interface shows the target, remaining moves, commands, current input source and anonymous action trail. Ties, empty ballots and controls at their limits do not consume a move. Local practice is explicitly one voter on the device. Stage view exposes the instrument and commands for OBS Window Capture. It does not synchronize an independent OBS Browser Source.
+
+For open-ended exploration, the studio supports custom inputs, predictions, calculated traces, one-variable retests, actual before/after comparisons and a validated anonymous notebook.
 
 ## How we built it
 
-Codex helped compare ideas, read the Twitch documentation, build pure physics and voting modules, create the responsive interface, diagnose a browser fetch binding bug, write regression tests and prepare deployment and documentation.
+Codex supported official-rule research, competitor comparison, the product revision, physics and voting modules, responsive interface, Twitch integration, regression tests and deployment. No runtime AI or paid inference key is needed.
 
-The app uses browser JavaScript, HTML, CSS, SVG, native Twitch OAuth, Helix and EventSub WebSockets. It asks only for read-chat permission for the host's own channel. No client secret, remote database, paid inference API or runtime AI is required. The SVG instruments and result text use the same deterministic model. The buoyancy motion illustrates settling to equilibrium rather than simulating fluid dynamics.
+The application uses HTML, CSS, browser JavaScript modules and original SVG instruments. Pure equations supply both the movement and reported measurement. The game engine keeps ballot state, applies bounded actions and evaluates the target. Twitch OAuth, Helix and EventSub WebSockets provide an own-channel read-chat path. Tokens remain in memory/sessionStorage and never enter source or downloads. There is no client secret, chat-writing permission or remote chat archive.
 
-## Challenges
+## Challenges we ran into
 
-A prediction needs a clear boundary: inputs and choices cannot change after the round closes. Duplicate deliveries cannot add votes, a chatter changing their mind should not count twice, and a broken connection must not pretend missing messages arrived. We added phase checks, message freshness guards, bounded deduplication and connection-loss closure.
+Audience control needs a fair boundary. A viewer changing a choice must replace a vote, not add another. Duplicate delivery and stale messages must not count. An interrupted Twitch ballot must not apply partial results. We reuse a guarded ballot lifecycle, then apply a single consensus action only after voting closes.
 
-The browser regression check also found a bug that a Node mock did not catch: native Window.fetch failed when invoked with the connection object as receiver. Binding it to the browser global fixed the actual call path.
+Browser checks caught a native fetch binding bug that Node mocks missed. Later game tests caught a fixture session-reset mistake; the fixture now reloads its controlled connection explicitly. The mobile review also moved the primary turn action into reach and scrolls between choices and the instrument at the appropriate step.
 
-## Accomplishments
+## Accomplishments we're proud of
 
-Three experiments run through a complete local practice round, from parameter selection to measured reveal and anonymous export. The interface includes an original animated physical instrument, a projection layout, a mobile navigation bar, keyboard focus and a reduced-motion path. Seventeen model/protocol tests and fifteen browser journeys passed. Forty route/width combinations had no horizontal overflow. Eight automated accessibility states had no detected violations, with incomplete checks documented in the repository. A keyboard regression reproduced and fixed a skip-link bug that changed the page instead of focusing its content.
+The three targets are reachable through the actual UI and model. Browser checks also verify a five-move loss, anonymous action export, Stage view commands, no-vote handling, navigation cancellation and controlled Twitch tie/disconnect behavior. The existing studio's guided retest remains functional.
+
+26 model/protocol tests and 25 browser journeys passed. 64 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
 
 ## What we learned
 
-A useful live interaction needs more than a chat command. The same equation has to explain the moving instrument and the final result, while timing and input rules keep the audience's prediction fair. Browser integration checks also matter: passing pure tests does not establish a working network or authenticated channel.
+Giving chat agency changes the product more than adding decorative features. A measured target, a small move budget and a clear consequence create something people can discuss together. Scientific honesty matters too: a calculated model output is not a sensor reading, neutral buoyancy is not surface floating, and a protocol fixture is not proof of real Twitch operation.
 
 ## What's next
 
-Complete an authenticated Twitch round and record its actual evidence, then test with science creators and assistive technology users. Expand experiments only when a clear question and honest model can be supported.
+Complete real-channel verification, record the actual Twitch-and-Codex demonstration, then test with creators and assistive-technology users. Creator adoption, learning outcomes and engagement improvements have not been measured.
 
-## Try it
+**Integration status:** The owner is signed in to Twitch, but application registration returned “user must have two factor auth enabled to perform this action”. Real Twitch authorization and an actual chat-controlled mission remain pending owner 2FA. We do not present fixture traffic as live Twitch evidence.
 
-Open Studio, keep the pendulum defaults, open predictions and choose a local answer. Close predictions, run the experiment, then compare the measured periods. Try equal lengths with different masses next.
+**Live:** https://trialroom-live.vercel.app/
 
-**Live website:** https://trialroom-live.vercel.app/
+**Code:** https://github.com/adeelfalaksher900-creator/trialroom
 
-**Source repository:** https://github.com/adeelfalaksher900-creator/trialroom
-
-**Built with:** OpenAI Codex, JavaScript, HTML, CSS, SVG, Twitch API, Twitch EventSub, Twitch OAuth, Vercel, WebSocket, Playwright.
+**Built with:** OpenAI Codex, JavaScript, HTML, CSS, SVG, Twitch API, Twitch EventSub, OAuth, WebSocket, Vercel, Playwright, axe-core.
 
 **Team:** Adeel Falak Sher and Raouf Khalid. Individual roles are not invented.
 
-## Submission answers to prepare
+## Additional information preparation
 
-- Start of implementation: November 1, 2026. Research began October 30, 2026. The core app is new during the event.
-- Code URL: https://github.com/adeelfalaksher900-creator/trialroom
-- Observed Codex build session ID: 01a1863a-9282-75ec-8768-4e6badcb1066. Compare with /status before final submission.
-- Technology requirement: Codex assisted research, implementation, testing and release. Twitch OAuth/Helix authorizes and subscribes the owner's channel; EventSub delivers prediction commands. Actual authorized Twitch verification is still pending and must be described accurately.
-- Streamer/community use: set a question, invite A/B/Same commands in chat, lock predictions, show the experiment on stream and discuss the measured outcome.
-- Personal experience surveys, countries, eligibility and travel answers: owner to supply. Do not infer subjective answers or check legal attestations.
-- Required video: under three minutes, actual functioning Twitch footage and footage of the Codex build; publicly viewable YouTube link. Deferred until owner approval.
-- Thumbnail: docs/assets/thumbnail-3x2.jpg, 1536×1024, original AI-assisted marketing illustration, not a product screenshot.
+- New implementation began November 1, 2026; research began October 30. Qloo is a separate completed project.
+- Observed Codex session: 01a1863a-9282-75ec-8768-4e6badcb1066. Owner should compare with /status before final submission.
+- Technology: Codex supported research, implementation, testing and release; the Twitch OAuth/Helix/EventSub adapter reads audience control commands. Actual channel verification is pending owner 2FA.
+- Community use: open a mission during a stream, show the lab with OBS Window Capture, collect A/B/C commands and apply the chosen control until the group hits the target or uses its five moves.
+- Personal survey, residence and legal eligibility answers belong to the owner and are not inferred.
+- Required public YouTube video under three minutes must show actual Twitch operation and Codex build footage. Video and the 15-image gallery remain deferred until project review approval.
+- Save as a draft only. Do not perform final submission.
