@@ -1,0 +1,169 @@
+{
+  "journeys": [
+    "Home instrument actually moves",
+    "Local prediction change, locked values, run, reveal, save",
+    "Anonymous export",
+    "Stage view and Escape exit",
+    "Friction experiment run",
+    "Buoyancy experiment run",
+    "Malformed import rejected",
+    "Reduced motion shows static result",
+    "Controlled EventSub fixture: correct subscription, chat, dedupe, change, disconnect closes votes"
+  ],
+  "responsive": [
+    {
+      "route": "home",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "studio",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "guide",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "privacy",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "home",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "studio",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "guide",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "privacy",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "home",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "studio",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "guide",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "privacy",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "home",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "studio",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "guide",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "privacy",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "route": "home",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "studio",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "guide",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "privacy",
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "home",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "predictions open",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "result",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "stage",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "connection dialog",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "mobile studio",
+      "violations": [],
+      "incomplete": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "guide",
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "errors": []
+}
