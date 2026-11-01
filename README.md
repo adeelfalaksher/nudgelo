@@ -22,14 +22,15 @@ This combines a target-seeking game with scientific calibration. It is not a cla
 
 ## Play without an account
 
-1. Open a mission and read its target and three controls.
-2. Select **Open voting**. Local practice is one voter on this device, explicitly labeled.
-3. Tap A, B or C; changing your choice replaces your vote.
-4. Select **Lock the vote**, then **Apply chat’s move**. Watch the four-second model run and read the result.
-5. Discuss and repeat. Hit the target within five moves, or reset and try a different strategy.
-6. Download the anonymous mission log to keep counts, input changes and calculated measurements.
+1. Choose a mission from Discover and read its target.
+2. Tap A, B or C. In solo play, one tap applies that move immediately.
+3. Watch the four-second model run, read the result and choose your next move.
+4. Reach the target within five moves, or reset and try a different strategy.
+5. Download the anonymous action log if you want to keep your experiment trail.
 
-The unique most-voted control wins. Tied or empty ballots and controls already at their bounds do not consume a move. A Twitch interruption cancels the ballot; partial votes cannot silently spend a move. Navigating away also cancels an unfinished vote. Values cannot change during voting or model execution.
+**Rehearse a chat vote** lets a host try the open → vote → lock → apply flow locally. It is one practice voter, clearly labeled. With Twitch connected, the host opens voting and real chat commands choose the action instead.
+
+Tied/empty ballots and controls already at their bounds do not consume a move. Twitch interruptions and navigation cancel an unfinished ballot. Transient voter/delivery identifiers are discarded after completed or cancelled decisions; only anonymous counts remain. They cannot reappear as local-practice votes.
 
 ### Explore freely
 
@@ -37,15 +38,15 @@ The [experiment studio](https://trialroom-live.vercel.app/#/studio) remains avai
 
 ## Connect Twitch
 
-**Real-channel verification is still pending.** The owner is signed in, but Twitch rejected application creation with “user must have two factor auth enabled to perform this action.” Controlled EventSub browser fixtures verify the integration code, not a live channel session.
+Players use **Connect Twitch → Continue with Twitch**. No developer app ID, Client Secret or password form is shown in the player dialog. The app requests only `user:read:chat` for the host's own channel and never posts messages.
 
-1. Enable two-factor authentication on your Twitch account yourself.
-2. In [Twitch Developer Console](https://dev.twitch.tv/console/apps), register a **Public** client with category **Website Integration**. Add the exact OAuth redirect URI shown in the app, including a trailing slash when shown.
-3. Select **Connect Twitch**, enter the application's public Client ID and authorize `user:read:chat`. Never enter a Client Secret.
-4. Trialroom validates the token and subscribes to `channel.chat.message` on the authorized user's own channel through EventSub WebSocket.
-5. Open voting. Viewers type `!trial a`, `!trial b` or `!trial c`. The displayed control labels define their effects. The studio also accepts `!trial same`, equivalent to C, for its equal-outcome prediction.
+**Current real-channel status:** application registration/authorization is incomplete, so the deployed player dialog truthfully offers solo play. The owner's signed-in console has no registered application, and its security page still offers Set Up Two-Factor Authentication. The integration is covered by controlled protocol/OAuth browser fixtures; those are not live Twitch evidence.
 
-One current choice per Twitch user. Duplicate deliveries, old messages, wrong subscriptions and mismatched channels cannot add votes. The app never posts chat. Tokens stay in browser memory/sessionStorage, are checked on connection and hourly, and are removed on disconnect. No client secret, paid model API or database is required.
+The application owner registers one Public Website Integration client, supplies its public Client ID and exact callback in `public/config.js`, and deploys. Then every host authorizes the same Trialroom application with one button. Twitch's [official registration guide](https://dev.twitch.tv/docs/authentication/register-app) explains that Client IDs are public; Client Secrets and access tokens must stay private. Never reuse another application's ID.
+
+For local/self-hosted testing, the dedicated `#/setup` route can save an owner override on that browser. It is an owner tool, not part of player onboarding. A configured Preview with a different callback origin directs hosts to the canonical website instead of starting an OAuth flow that cannot validate its state.
+
+One current choice per Twitch user. Viewers type `!trial a`, `!trial b` or `!trial c`; the studio also accepts `!trial same`. Duplicate deliveries, old messages, wrong subscriptions and mismatched channels cannot add votes. Tokens remain in memory/sessionStorage, are checked on connection and hourly, and are removed on disconnect. No paid inference API or database is required.
 
 ## Show it on stream
 
@@ -64,7 +65,7 @@ npm ci
 npm start
 ```
 
-Open `http://localhost:4173/`. Set `PORT` if required. No environment secrets are needed; public Client ID configuration is entered in the app. `.env.example` explains that boundary.
+Open `http://localhost:4173/`. Set `PORT` if required. No environment secrets are needed. The owner configures the public application identifier once; players do not enter one. `.env.example` explains that boundary.
 
 ```sh
 npm test
@@ -95,7 +96,9 @@ flowchart TD
 | --- | --- |
 | `public/game.js` | Missions, consensus, bounded actions, goals, turn history |
 | `public/game-ui.js` | Play flow, control dock, mission stages, results and downloads |
-| `public/home.js` | Interactive model preview and mission discovery |
+| `public/home.js` | Featured interactive experiment and illustrated mission discovery |
+| `public/connection.js` / `config.js` | Shared public app configuration, player OAuth UI and separate owner setup |
+| `public/playground.css` | Responsive app shell, dark surfaces, illustrated mission cards and control dock |
 | `public/physics.js` | Bounds, equations, outcomes and physical positions |
 | `public/round.js` | Ballot lifecycle, deduplication and notebook import validation |
 | `public/twitch.js` | OAuth state, token validation and EventSub lifecycle |
@@ -115,6 +118,6 @@ Team: **Adeel Falak Sher and Raouf Khalid**. No individual contribution roles ar
 
 The game uses ideal small-angle pendulums, constant kinetic friction and equilibrium buoyancy. Settling motion is illustrative, not computational fluid dynamics. Equations/assumptions and OpenStax references are visible in the app. These are calculated measurements, not sensor readings.
 
-Mobbin's Nike Run Club and Duolingo screens were actually inspected for large-readout hierarchy, focused controls, progress and completion feedback. Trialroom uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
+Mobbin's Discord Discover and Twitch Browse screens were inspected for the current app shell, while earlier Nike Run Club and Duolingo references were inspected for large-readout hierarchy, focused controls, progress and completion feedback. Trialroom uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
 
 Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. Final video and 15-image gallery remain deferred for the owner's review. The hackathon entry remains Draft and has not been submitted. Devpost separately made the saved portfolio project public; factual submission fields are saved, while personal/legal answers and teammate membership remain for the owner.

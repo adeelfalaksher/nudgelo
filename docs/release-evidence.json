@@ -1,4 +1,5 @@
 {
+  "scope": "Historical first mission release. Current playground checks and release references are in docs/validation.md and its follow-up pull request.",
   "release": {
     "commit": "f7667d07e0461a3cbe635a1ab6c583a2c6c3f3d9",
     "pullRequest": 4,

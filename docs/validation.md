@@ -63,3 +63,15 @@ The final under-three-minute video must show actual Twitch operation and Codex b
 ## Manual contrast follow-up
 
 Manual review of the SVG block faces found that white text on the brass B face (#bd914d) had a 2.87:1 contrast ratio. B now uses dark ink #1b2420; A keeps its white label on green (4.83:1). This is a targeted readability correction, not a claim to have completed all manual accessibility checks. The full game/Preview/Production evidence above describes the feature release; the color-only follow-up and final release status are recorded on its GitHub pull request.
+
+## Playground and connection revision
+
+The latest source branch replaces player-facing Client ID setup with a shared-app, one-button OAuth flow and a separate owner route. Missing app configuration and cross-origin Preview callbacks fail clearly. Real Twitch remains pending owner application setup; its settings page was inspected in the connected browser and still offers Set Up Two-Factor Authentication. No password/OTP was requested or authentication protection bypassed.
+
+34 Node tests passed. The full local browser run passed 32 journeys, 72 route/width combinations and 12 axe states with zero detected tagged violations. Eleven contrast checks and five aria checks remain incomplete, so this is not full accessibility certification. New cases cover direct solo actions, keyboard/mobile control focus, no player ID input, configured one-button OAuth (read-only scope, random state, exact callback), Preview origin mismatch and cancelled-vote data cleanup. A final focused check covered 16 route/width combinations after enlarging secondary touch controls, plus another modal axe check. Dependency audit reported no known advisories.
+
+The source CI [Checks 41330180700](https://github.com/adeelfalaksher900-creator/trialroom/actions/runs/41330180700) completed every required step successfully. During local review, the dark-theme progress number and inline guide code initially failed contrast assertions; their foreground/background combinations were corrected before the passing run. Missing pending OAuth timestamps/app IDs now fail closed, and opaque bearer-token punctuation is accepted without allowing header control characters. Voter and delivery maps are discarded after completed/cancelled decisions.
+
+The current QA screenshots show the revised interface; they are not generated product imagery or the held 15-image gallery. The existing marketing thumbnail/video/gallery have not been regenerated for this redesign.
+
+The guide now separates one-tap solo play, local chat-vote rehearsal and real-channel hosting. The privacy page describes the shared public identifier without asking players to supply it. The studio's status region no longer rewrites unchanged text on every timer update; a MutationObserver browser regression covers that behavior. The final guide/status follow-up and release identifiers are recorded in its pull request.

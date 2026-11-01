@@ -10,7 +10,8 @@ Acceptance:
 - One vote per viewer; a newer choice replaces the old one; duplicate/stale/wrong-channel messages cannot add votes.
 - No-vote, tie and at-bound control decisions do not spend moves. Network interruption cancels Twitch voting without applying partial results.
 - Explicit ready, voting, locked, testing, feedback, win and loss states. No resets or mission switches while a turn is active.
-- Labeled one-voter local practice, authenticated own-channel EventSub path and no chat-writing permission.
+- Immediate one-tap solo play, a separately labeled one-voter vote rehearsal, authenticated own-channel EventSub path and no chat-writing permission.
+- Shared owner app configuration and a player-facing one-button connection; no per-player Client ID form. Clear unavailable/origin-mismatch states.
 - Visible commands on Stage view, original moving instruments, model assumptions, keyboard/focus support and reduced motion.
 - Mobile navigation and reachable primary action; no horizontal overflow at 320–1920 CSS px.
 - Anonymous downloadable action logs. No token, raw chat or viewer identity in downloads/source.

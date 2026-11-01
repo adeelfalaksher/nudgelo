@@ -16,7 +16,7 @@ Trialroom gives a Twitch community five moves to solve one shared physical probl
 
 Three missions are included: synchronize two pendulums, stop a sled inside a 1.40–1.70 metre target, and suspend a block at neutral buoyancy. Some tempting moves do not help; changing pendulum mass, for example, cannot fix its period in the ideal small-angle model. Buoyancy permits more than one valid strategy.
 
-The interface shows the target, remaining moves, commands, current input source and anonymous action trail. Ties, empty ballots and controls at their limits do not consume a move. Local practice is explicitly one voter on the device. Stage view exposes the instrument and commands for OBS Window Capture. It does not synchronize an independent OBS Browser Source.
+The interface shows the target, remaining moves, commands, current input source and anonymous action trail. Ties, empty ballots and controls at their limits do not consume a move. Solo play applies a move with one tap. Chat-vote rehearsal is explicitly one local voter. The application owner configures Twitch once; players use a simple authorization button without entering developer credentials. Stage view exposes the instrument and commands for OBS Window Capture. It does not synchronize an independent OBS Browser Source.
 
 For open-ended exploration, the studio supports custom inputs, predictions, calculated traces, one-variable retests, actual before/after comparisons and a validated anonymous notebook.
 
@@ -36,7 +36,7 @@ Browser checks caught a native fetch binding bug that Node mocks missed. Later g
 
 The three targets are reachable through the actual UI and model. Browser checks also verify a five-move loss, anonymous action export, Stage view commands, no-vote handling, navigation cancellation and controlled Twitch tie/disconnect behavior. The existing studio's guided retest remains functional.
 
-26 model/protocol tests and 25 browser journeys passed. 64 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
+34 model/protocol tests and 32 browser journeys passed. 72 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
 
 ## What we learned
 

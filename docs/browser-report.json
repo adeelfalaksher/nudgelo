@@ -2,6 +2,7 @@
   "journeys": [
     "Keyboard skip link focuses content without changing routes",
     "Home instrument actually moves",
+    "Unchanged studio status is not repeatedly announced by timer updates",
     "Local prediction change, locked values, run, reveal, save",
     "Anonymous export",
     "Stage view and Escape exit",
@@ -11,20 +12,26 @@
     "Friction experiment run",
     "Buoyancy experiment run",
     "Malformed import rejected",
+    "Player connection dialog has no Client ID form and truthfully reports missing app setup",
     "Mobile settings disclosure opens and closes with the keyboard",
     "Reduced motion shows static result",
     "Twitch fixture recap uses two unique voters and actual outcome, not message volume",
     "Controlled EventSub fixture: correct subscription, chat, dedupe, change, disconnect closes votes",
+    "Solo play applies a real move with one tap, without a vote-open/lock/apply sequence",
     "Empty mission ballot consumes no move",
     "Synchronize: four actual length changes reach equal periods",
     "Anonymous mission export contains four reproducible actions and no voter identity",
     "Mission stage exposes commands and measurements while hiding host controls",
-    "Precision braking reaches the 1.40\u20131.70m target",
+    "Precision braking reaches the 1.40–1.70m target",
     "Neutral buoyancy reaches density ratio 1.00",
     "Five ineffective mass changes lose the mission without changing pendulum period",
     "Leaving an open mission cancels voting without applying a partial action",
+    "Mobile Choose a move focuses the first available control, which works from the keyboard",
     "EventSub fixture tied mission ballot uses no move, duplicate delivery ignored",
-    "EventSub fixture maps C to the third control and cancels on disconnect"
+    "EventSub fixture maps C to the third control and cancels on disconnect",
+    "Cancelled Twitch counts are discarded instead of appearing as local votes",
+    "Configured app uses one-button OAuth with the shared app ID, exact callback, random state and read-only scope",
+    "Preview redirects hosts to the canonical website instead of starting OAuth on the wrong origin"
   ],
   "responsive": [
     {
@@ -68,6 +75,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 320,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 360,
       "overflow": false
@@ -108,6 +120,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 360,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 390,
       "overflow": false
@@ -148,6 +165,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 390,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 430,
       "overflow": false
@@ -188,6 +210,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 430,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 768,
       "overflow": false
@@ -228,6 +255,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 768,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 1024,
       "overflow": false
@@ -268,6 +300,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 1024,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 1440,
       "overflow": false
@@ -308,6 +345,11 @@
       "overflow": false
     },
     {
+      "route": "setup",
+      "width": 1440,
+      "overflow": false
+    },
+    {
       "route": "home",
       "width": 1920,
       "overflow": false
@@ -344,6 +386,11 @@
     },
     {
       "route": "privacy",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "setup",
       "width": 1920,
       "overflow": false
     }
