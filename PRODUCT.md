@@ -1,4 +1,4 @@
-# Trialroom product contract
+# Nudgelo product contract
 
 Audience: Twitch science/variety creators and viewers who want to solve a short puzzle together.
 

@@ -1,16 +1,16 @@
-# Trialroom
+# Nudgelo
 
-**Your chat. Runs the lab.**
+**Small moves. Big aha!**
 
 A cooperative physics game for Twitch. The audience has five moves to reach a shared target. Chat votes for a control; the winning action changes a real model input. The same equations drive the instrument, measurement and anonymous decision log.
 
-[Play Trialroom](https://trialroom-live.vercel.app/#/play) · [Guide](https://trialroom-live.vercel.app/#/guide) · [Validation](docs/validation.md) · [Research](docs/research.md)
+[Play Nudgelo](https://nudgelo.vercel.app/#/play) · [Guide](https://nudgelo.vercel.app/#/guide) · [Validation](docs/validation.md) · [Research](docs/research.md)
 
-![Trialroom home](docs/assets/home-desktop.png)
+![Nudgelo home](docs/assets/home-desktop.png)
 
 ## Why it exists
 
-A chat poll can collect opinions without giving the audience any agency. Trialroom makes the vote consequential: lengthen a pendulum, increase friction or change a block's density, then see whether the community's idea moves the experiment toward its goal. It gives science and variety creators a short cooperative segment with an explainable outcome.
+A chat poll can collect opinions without giving the audience any agency. Nudgelo makes the vote consequential: lengthen a pendulum, increase friction or change a block's density, then see whether the community's idea moves the experiment toward its goal. It gives science and variety creators a short cooperative segment with an explainable outcome.
 
 This combines a target-seeking game with scientific calibration. It is not a claim to have invented collective voting, Twitch physics or cooperative puzzles. Learning outcomes and engagement gains have not been measured.
 
@@ -22,7 +22,7 @@ This combines a target-seeking game with scientific calibration. It is not a cla
 
 ## Play without an account
 
-1. Choose a mission from Discover and read its target.
+1. Choose a mission from the Playground and read its target.
 2. Tap A, B or C. In solo play, one tap applies that move immediately.
 3. Watch the four-second model run, read the result and choose your next move.
 4. Reach the target within five moves, or reset and try a different strategy.
@@ -34,19 +34,23 @@ Tied/empty ballots and controls already at their bounds do not consume a move. T
 
 ### Explore freely
 
-The [experiment studio](https://trialroom-live.vercel.app/#/studio) remains available. Set variables, collect A/B/Same predictions, run an eight-second model, reveal measurements and compare a one-variable retest. The notebook saves up to 50 anonymous rounds locally. Imports validate bounds, totals and recomputed outcomes.
+The [experiment studio](https://nudgelo.vercel.app/#/studio) remains available. Set variables, collect A/B/Same predictions, run an eight-second model, reveal measurements and compare a one-variable retest. The notebook saves up to 50 anonymous rounds locally. Imports validate bounds, totals and recomputed outcomes.
+
+### Name and compatibility
+
+Nudgelo is the renamed project previously called Trialroom. The existing GitHub repository and old live alias remain available. New visible commands use `!nudge`; `!trial` remains accepted. Storage keys and the version-1 `trialroom-mission` export identifier are intentionally unchanged so existing sessions remain compatible on their original origin. Browser-local notebooks do not automatically transfer between domains; use anonymous export/import to move studio records.
 
 ## Connect Twitch
 
 Players use **Connect Twitch → Continue with Twitch**. No developer app ID, Client Secret or password form is shown in the player dialog. The app requests only `user:read:chat` for the host's own channel and never posts messages.
 
-**Current real-channel status:** application registration/authorization is incomplete, so the deployed player dialog truthfully offers solo play. The owner's signed-in console has no registered application, and its security page still offers Set Up Two-Factor Authentication. The integration is covered by controlled protocol/OAuth browser fixtures; those are not live Twitch evidence.
+**Current real-channel status:** application registration/authorization is incomplete, so the deployed player dialog truthfully offers solo play. Application registration requires the owner to complete Twitch’s 2FA prerequisite. The integration is covered by controlled protocol/OAuth browser fixtures; those are not live Twitch evidence.
 
-The application owner registers one Public Website Integration client, supplies its public Client ID and exact callback in `public/config.js`, and deploys. Then every host authorizes the same Trialroom application with one button. Twitch's [official registration guide](https://dev.twitch.tv/docs/authentication/register-app) explains that Client IDs are public; Client Secrets and access tokens must stay private. Never reuse another application's ID.
+The application owner registers one Public Website Integration client, supplies its public Client ID and exact callback in `public/config.js`, and deploys. Then every host authorizes the same Nudgelo application with one button. Twitch's [official registration guide](https://dev.twitch.tv/docs/authentication/register-app) explains that Client IDs are public; Client Secrets and access tokens must stay private. Never reuse another application's ID.
 
 For local/self-hosted testing, the dedicated `#/setup` route can save an owner override on that browser. It is an owner tool, not part of player onboarding. A configured Preview with a different callback origin directs hosts to the canonical website instead of starting an OAuth flow that cannot validate its state.
 
-One current choice per Twitch user. Viewers type `!trial a`, `!trial b` or `!trial c`; the studio also accepts `!trial same`. Duplicate deliveries, old messages, wrong subscriptions and mismatched channels cannot add votes. Tokens remain in memory/sessionStorage, are checked on connection and hourly, and are removed on disconnect. No paid inference API or database is required.
+One current choice per Twitch user. Viewers type `!nudge a`, `!nudge b` or `!nudge c`; the studio also accepts `!nudge same`. Duplicate deliveries, old messages, wrong subscriptions and mismatched channels cannot add votes. Tokens remain in memory/sessionStorage, are checked on connection and hourly, and are removed on disconnect. No paid inference API or database is required.
 
 ## Show it on stream
 
@@ -98,7 +102,7 @@ flowchart TD
 | `public/game-ui.js` | Play flow, control dock, mission stages, results and downloads |
 | `public/home.js` | Featured interactive experiment and illustrated mission discovery |
 | `public/connection.js` / `config.js` | Shared public app configuration, player OAuth UI and separate owner setup |
-| `public/playground.css` | Responsive app shell, dark surfaces, illustrated mission cards and control dock |
+| `public/playground.css` | Responsive top navigation, bright surfaces, puzzle cards and control dock |
 | `public/physics.js` | Bounds, equations, outcomes and physical positions |
 | `public/round.js` | Ballot lifecycle, deduplication and notebook import validation |
 | `public/twitch.js` | OAuth state, token validation and EventSub lifecycle |
@@ -112,12 +116,12 @@ No remote database is needed for this host-browser flow. A ballot holds at most 
 
 Built during the Codex x TwitchCon Hackathon. Codex supported research, product revision, models, interface, protocol integration, testing and release. The observed session ID and final-submission caveat are documented in [research](docs/research.md). There are no runtime AI requests.
 
-Team: **Adeel Falak Sher and Raouf Khalid**. No individual contribution roles are invented.
+Team: **Adeel Falak Sher and Raouf Khalid**.
 
 ## Limits and credits
 
 The game uses ideal small-angle pendulums, constant kinetic friction and equilibrium buoyancy. Settling motion is illustrative, not computational fluid dynamics. Equations/assumptions and OpenStax references are visible in the app. These are calculated measurements, not sensor readings.
 
-Mobbin's Discord Discover and Twitch Browse screens were inspected for the current app shell, while earlier Nike Run Club and Duolingo references were inspected for large-readout hierarchy, focused controls, progress and completion feedback. Trialroom uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
+Mobbin’s [Headspace home](https://mobbin.com/screens/9fb74046-d5b5-4af9-9204-78cacdd67661) and [Duolingo activity](https://mobbin.com/screens/7bb8916e-d373-43c3-9614-70afaf9abfed) screens were inspected for clear discovery, approachable color, focused actions and progress feedback. The current implementation uses bright surfaces, blue actions, a live interactive toy and original blue/coral instruments. Nudgelo uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
 
 Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. Final video and 15-image gallery remain deferred for the owner's review. The hackathon entry remains Draft and has not been submitted. Devpost separately made the saved portfolio project public; factual submission fields are saved, while personal/legal answers and teammate membership remain for the owner.

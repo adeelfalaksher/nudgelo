@@ -1,4 +1,4 @@
-# Trialroom
+# Nudgelo
 
 **Tagline:** Your chat runs the lab. Five moves to solve a physics mission together—vote, change a real model input and discover what gets you to the target.
 
@@ -12,7 +12,7 @@ Our first studio let people predict an outcome. Reviewing that flow exposed its 
 
 ## What it does
 
-Trialroom gives a Twitch community five moves to solve one shared physical problem. Viewers choose a control through `!trial a`, `!trial b` or `!trial c`. The unique most-voted action changes one bounded input. The instrument moves, the measurement updates and the group plans its next decision.
+Nudgelo gives a Twitch community five moves to solve one shared physical problem. Viewers choose a control through `!nudge a`, `!nudge b` or `!nudge c`. The unique most-voted action changes one bounded input. The instrument moves, the measurement updates and the group plans its next decision.
 
 Three missions are included: synchronize two pendulums, stop a sled inside a 1.40–1.70 metre target, and suspend a block at neutral buoyancy. Some tempting moves do not help; changing pendulum mass, for example, cannot fix its period in the ideal small-angle model. Buoyancy permits more than one valid strategy.
 
@@ -36,7 +36,7 @@ Browser checks caught a native fetch binding bug that Node mocks missed. Later g
 
 The three targets are reachable through the actual UI and model. Browser checks also verify a five-move loss, anonymous action export, Stage view commands, no-vote handling, navigation cancellation and controlled Twitch tie/disconnect behavior. The existing studio's guided retest remains functional.
 
-34 model/protocol tests and 32 browser journeys passed. 72 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
+35 model/protocol tests and 32 browser journeys passed. 72 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
 
 ## What we learned
 
@@ -48,7 +48,7 @@ Complete real-channel verification, record the actual Twitch-and-Codex demonstra
 
 **Integration status:** The owner is signed in to Twitch, but application registration returned “user must have two factor auth enabled to perform this action”. Real Twitch authorization and an actual chat-controlled mission remain pending owner 2FA. We do not present fixture traffic as live Twitch evidence.
 
-**Live:** https://trialroom-live.vercel.app/
+**Live:** https://nudgelo.vercel.app/
 
 **Code:** https://github.com/adeelfalaksher900-creator/trialroom
 

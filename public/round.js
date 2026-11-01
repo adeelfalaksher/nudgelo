@@ -2,7 +2,7 @@ import {EXPERIMENTS, parameters, result} from './physics.js';
 export const CHOICES = ['a','b','same'];
 export function parseCommand(text) {
   if (typeof text !== 'string' || text.length > 50) return null;
-  const match = /^!trial\s+(a|b|same|c)\s*$/i.exec(text.trim());
+  const match = /^!(?:nudge|trial)\s+(a|b|same|c)\s*$/i.exec(text.trim());
   const choice=match?.[1].toLowerCase();return choice==='c'?'same':choice??null;
 }
 export class Round {
@@ -24,7 +24,7 @@ export class Round {
   record(){if(this.phase!=='revealed')throw new Error('Reveal the result before saving.');return{kind:this.kind,params:{...this.params},source:this.source,counts:this.counts(),outcome:result(this.kind,this.params).winner,at:new Date(this.startedAt).toISOString()};}
 }
 export function validateHistory(value) {
-  if(!value||value.version!==1||!Array.isArray(value.rounds)||value.rounds.length>50)throw new Error('Choose a Trialroom session with up to 50 rounds.');
+  if(!value||value.version!==1||!Array.isArray(value.rounds)||value.rounds.length>50)throw new Error('Choose a Nudgelo session with up to 50 rounds.');
   return value.rounds.map(r=>{
     if(!r||!Object.hasOwn(EXPERIMENTS,r.kind)||!['practice','twitch'].includes(r.source)||!Number.isFinite(Date.parse(r.at))||!r.counts||typeof r.counts!=='object')throw new Error('This session record is not valid.');
     const p=parameters(r.kind,r.params),counts={};let total=0;
