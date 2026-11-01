@@ -1,0 +1,134 @@
+{
+  "release": {
+    "commit": "f7667d07e0461a3cbe635a1ab6c583a2c6c3f3d9",
+    "pullRequest": 4,
+    "ciRun": 41323583203,
+    "preview": "dpl_J2g1YFkqggqntmz486NAE5YxqZ2Q",
+    "production": "dpl_HZdwy7FGE7ubnWpxMMR3vPT2aYRr",
+    "url": "https://trialroom-live.vercel.app/"
+  },
+  "checks": {
+    "node": 26,
+    "browserJourneys": 25,
+    "responsiveCombinations": 64,
+    "axeStates": 12,
+    "detectedAxeViolations": 0,
+    "incompleteContrastStates": 11,
+    "incompleteAriaStates": 5,
+    "knownDependencyAdvisories": 0
+  },
+  "sourceComparison": {
+    "method": "Vercel source-tree content identifiers compared with SHA-1 of tested local files",
+    "files": [
+      {
+        "path": "public/Manrope-OFL.txt",
+        "sha1": "12c29b4c541b7ba0f0d5d86818697558c1c28d76",
+        "equal": true
+      },
+      {
+        "path": "public/app.js",
+        "sha1": "b7a3f4b2e0fabee696120ced580819debf356d01",
+        "equal": true
+      },
+      {
+        "path": "public/favicon.svg",
+        "sha1": "967e5c66e5bda86aea8f750d79900b40beb55c86",
+        "equal": true
+      },
+      {
+        "path": "public/game-ui.js",
+        "sha1": "6404be245c99679dbb95e08ac3a79c433c91f2ee",
+        "equal": true
+      },
+      {
+        "path": "public/game.css",
+        "sha1": "051128849834b64c4c55248d2084fa5ec752eba3",
+        "equal": true
+      },
+      {
+        "path": "public/game.js",
+        "sha1": "8b7874706184edba664a083fcbbfecc9940281cc",
+        "equal": true
+      },
+      {
+        "path": "public/home.css",
+        "sha1": "474c4cc274f65ca0a779a182030c4e6f2a612bb2",
+        "equal": true
+      },
+      {
+        "path": "public/home.js",
+        "sha1": "69fe662b7c0d3091372389a72896d2d7cd8d3457",
+        "equal": true
+      },
+      {
+        "path": "public/index.html",
+        "sha1": "6a69f2d6ff732f305967c852326a0869ebd8b7da",
+        "equal": true
+      },
+      {
+        "path": "public/inquiry-ui.js",
+        "sha1": "897a2e1e4c1b5c6ea9ccce8409eab760e2780764",
+        "equal": true
+      },
+      {
+        "path": "public/inquiry.css",
+        "sha1": "f55fa6cac8b9efd3f3c2a0ae38d4926228e2f3d0",
+        "equal": true
+      },
+      {
+        "path": "public/inquiry.js",
+        "sha1": "e105175288b68f1eaa5f8a9c68730ff38af22e08",
+        "equal": true
+      },
+      {
+        "path": "public/manrope.woff2",
+        "sha1": "498cf8247b4e46a62c6cb00057601c71d50eec34",
+        "equal": true
+      },
+      {
+        "path": "public/physics.js",
+        "sha1": "768fc223350f636600e2e54c8aad74ef26598764",
+        "equal": true
+      },
+      {
+        "path": "public/round.js",
+        "sha1": "74219164aa8f5d058728dbd3a24c7c744f68fa60",
+        "equal": true
+      },
+      {
+        "path": "public/scene.js",
+        "sha1": "50915afdbc92bf9106e462ea39472dcb981d2b36",
+        "equal": true
+      },
+      {
+        "path": "public/style.css",
+        "sha1": "1f7785b771c703ec65595edeaed824f67232412c",
+        "equal": true
+      },
+      {
+        "path": "public/twitch.js",
+        "sha1": "6da980df01c57145aa3775a77fb692225a84d0ec",
+        "equal": true
+      },
+      {
+        "path": "vercel.json",
+        "sha1": "37d0ef1b3223e9b9241cfb99f26aca8e7b90afa2",
+        "equal": true
+      }
+    ]
+  },
+  "limits": [
+    "Actual Twitch channel verification blocked on owner 2FA",
+    "Physical phones and VoiceOver/NVDA untested",
+    "No comprehensive penetration-test certification",
+    "Full public-suite and HTTP probes blocked by terminal proxy; connected-browser manual journeys completed"
+  ],
+  "submission": {
+    "project": 1522696,
+    "submission": 1277168,
+    "status": "Draft",
+    "submittedAt": null,
+    "portfolioPublic": true,
+    "thumbnailUploaded": true
+  }
+}

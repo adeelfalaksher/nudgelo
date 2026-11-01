@@ -8,7 +8,7 @@ Event: https://twitchcon-codex.devpost.com/ . Rules: https://twitchcon-codex.dev
 
 The API gives the deadline as November 2 at 22:00 UTC, which is November 3 at 03:00 Pakistan time. The FAQ contains an inconsistent UTC conversion; use the API timestamp and official countdown. New work during the event, built with Codex, connecting interactively to Twitch is mandatory. Source repository and setup instructions, explanation of Codex use, actual Codex session ID, and a YouTube video under three minutes showing Twitch functionality AND how Codex built it are required. Video production remains deferred by user instruction. Extension review can take 5–14 days, so use native browser EventSub instead.
 
-Four equally weighted criteria: Innovation/Idea; Potential Impact; Technological implementation; Design. A useful round with clear consequences matters more than unrelated features. No registration, eligibility attestation or final submission is authorized without the required personal answers and explicit agreement.
+Four equally weighted criteria: Innovation/Idea; Potential Impact; Technological implementation; Design. A useful round with clear consequences matters more than unrelated features. The owner has now completed registration. Personal/legal attestations and final submission remain owner-controlled; no missing answers or agreement are invented.
 
 ## Five directions assessed
 
