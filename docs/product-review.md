@@ -1,48 +1,39 @@
-# Trialroom product review
+# Trialroom playground review
 
-Reviewed November 1, 2026. The revised product is a cooperative calibration game for Twitch, with the earlier experiment studio retained for free exploration. No winner score or measured engagement/learning gain is invented.
+Reviewed November 1, 2026. This is an implementation review with actual browser evidence; it is not a prediction of winning, a learning-outcome study or an accessibility/security certification.
 
-## Decision and distinction
+The redesign addresses two concrete problems: player onboarding exposed a developer Client ID form, and a solo move required opening, choosing, locking and applying a vote. Players now get a simple connection dialog. A shared app configuration drives one-button OAuth when registration is complete. Solo controls apply a move with one tap; chat-vote rehearsal is secondary.
 
-The original studio let chat predict, but did not give it control over the experiment. The revised core makes each collective decision change one physical input. A shared target and five-move budget give the group a reason to discuss results and adjust its strategy. It is a concrete combination of scientific models and cooperative calibration, not a claim to have invented Twitch physics or group voting.
-
-| Step | Health | Evidence and finding |
+| Step | Health | Evidence and change |
 | --- | --- | --- |
-| 1. Discover | Working | New Home names the audience and game, shows the five-move promise, provides a primary mission action and has an actual length-control preview. |
-| 2. Understand target | Working | Play shows one large measured value, target tolerance, original instrument and moves remaining. A/B/C controls show their exact physical effects and commands. |
-| 3. Vote | Working locally / protocol fixtures | One current vote per viewer; changed choices replace votes. Inputs and mission switches lock during a ballot. Empty/tied votes and at-bound controls spend no move. |
-| 4. Apply and learn | Working on Preview and Production | A chosen action changes one bounded input, then the same model animates and measures it. Three missions have verified wins; ineffective mass changes produce a real five-move loss. |
-| 5. Keep and share | Working | Anonymous action downloads reproduce input changes. Stage view keeps commands and the target visible while hiding host settings. A separate OBS Browser Source is not synchronized. |
-| 6. Connect actual Twitch | Owner action required | Signed-in console rejected application creation until owner 2FA is enabled. Actual authorization and chat traffic remain unverified. |
-| 7. Prepare submission | Saved, incomplete owner/media steps | Story, factual answers and links are saved. Hackathon entry remains Draft. Personal/legal fields, teammate membership and real Twitch/video evidence remain. |
+| 1. Discover | Working | Compact app navigation, a featured interactive model and three distinct illustrated mission covers replace the earlier paper/green marketing layout. No unsupported game catalog or fake audience totals appear. |
+| 2. Start solo | Working | Pick a target and tap a control. The model runs immediately without a multi-step voting ceremony. Mobile Choose a move scrolls to and focuses an available control. |
+| 3. Solve and learn | Working | The same deterministic model drives movement, target measurement and the decision log. All three mission wins, a five-move loss and bounds are tested. A deployed Preview synchronization win required only four direct taps. |
+| 4. Connect as a player | Working UI / real channel pending | No Client ID input appears in the player dialog. Configured-app browser fixtures verify one-button OAuth, read-only scope, random state and exact callback. Missing setup and Preview callback mismatch are explicit states. |
+| 5. Use actual Twitch | Owner action required | The owner's console has no registered application. Application registration/authorization must finish before a real chat-controlled mission can be verified. Fixtures are never called real channel traffic. |
+| 6. Keep it fair and private | Working in tests | One vote per viewer, deduplication and freshness/channel checks remain. Completed/void decisions discard voter/delivery maps. Cancelled Twitch counts cannot be presented as practice votes. Only applied anonymous totals enter the log. |
+| 7. Prepare the submission | Draft, owner/media work remains | Story and factual links are saved. Personal/legal fields and teammate membership remain owner-controlled. No final submission, final video or 15-image gallery is produced. |
 
-## Current captures
+## Current browser captures
 
-These captures were produced in this review run. The first three come from actual automated local UI interactions; the last two are real deployed browser interactions.
+The first three captures below are actual local application renders from this review, not generated imagery. The final capture is an actual deployed Preview interaction.
 
-![1. Home with an interactive instrument](assets/home-desktop.png)
+![Discover and mission library](assets/home-desktop.png)
 
-![2. Mobile mission and reachable primary action](assets/game-mobile.png)
+![Mobile mission controls](assets/game-mobile.png)
 
-![3. Target readout and control dock](assets/game-desktop.png)
+![Player connection without a developer ID field](assets/connection-player.png)
 
-![4. Preview synchronization completed at 0.0% difference](assets/review/08-preview-mission-complete.png)
+![Preview synchronization completed through four solo actions](assets/review/11-playground-preview.png)
 
-![5. Production neutral buoyancy completed at ratio 1.00](assets/review/09-production-neutral-buoyancy.png)
+## Mobbin references used in the implementation
 
-## References and resulting design
+[Discord Discover](https://mobbin.com/screens/3a936afb-d4c9-45c8-98cb-0f73eb0f4033), [Discord browsing](https://mobbin.com/screens/c4c78aba-8fd3-48b6-935e-466795dd6923) and [Twitch Browse](https://mobbin.com/screens/30e2787a-13f3-4cb1-9412-1b53932827bf) previews were inspected. Their coherent app-shell, featured activity and discovery-library structure informed the implementation. Trialroom has original branding, instrument artwork, model data and code. No protected game covers, logos or reference screenshots are shipped.
 
-Fresh Mobbin [Nike Run Club active run](https://mobbin.com/screens/13ac4d1d-b7c8-449b-8a5e-5be954efb76d), [run controls](https://mobbin.com/screens/95915ab3-c112-4ff6-9644-350b37c7a1a7) and [Duolingo story completion](https://mobbin.com/flows/1ff832eb-e370-438f-960e-b19609d66685) previews were inspected. The implementation follows a coherent large metric → focused canvas → control dock hierarchy, with visible progress and completion feedback. Trialroom's instrument artwork, data, palette, branding and code are original.
+## Validation and judging
 
-Mobile inspection exposed a primary action below the fold. It now stays above the bottom navigation; opening a vote brings controls into view and applying it returns to the instrument. Textual states and commands remain available with reduced motion. Small text and incomplete automated contrast checks still warrant manual/assistive-technology review.
+34 logic/protocol tests, 32 browser journeys, 72 route/width combinations and 12 axe states passed. A focused follow-up checked 16 layout combinations and the player modal after touch-target adjustments. Required CI completed successfully. No tagged automated accessibility violations were detected; eleven contrast states and five aria states remain incomplete for manual review. Dependency audit reported no known advisories.
 
-## Judging evidence
+The demonstrated distinction is target-seeking cooperative calibration: a bounded move changes a physical input and produces a reproducible measured consequence. Potential value is a short reusable segment for creators, with immediate solo onboarding and existing-chat participation. Related chat physics and cooperative voting products exist; no first-invention, adoption or engagement claim is made.
 
-| Criterion | Demonstrable strength | Limit |
-| --- | --- | --- |
-| Innovation/Idea | Audience actions pursue physical targets, with bounded moves and a reproducible experimental trail. | Related cooperative games and chat physics exist. |
-| Potential Impact | A reusable short segment for science/variety creators, with no viewer app or paid inference requirement. | No creator study, adoption result or learning gain has been measured. |
-| Technological implementation | Deterministic models, explicit state transitions, guarded EventSub adapter, tested UI and protected CI/release. Codex use is documented. | An actual Twitch mission is blocked by owner 2FA. |
-| Design | Consistent original instrument system, readable targets, mobile control access, mission progress and honest states. | Real phones, VoiceOver/NVDA and manual accessibility completion remain pending. |
-
-26 Node tests, 25 browser journeys, 64 layout combinations and 12 axe states passed; incomplete accessibility findings are retained. [Validation](validation.md) distinguishes local/CI, deployed browser interactions, protocol fixtures and failed terminal network probes. This review does not constitute comprehensive penetration testing or accessibility certification.
+Real Twitch still requires owner setup. Physical phones, VoiceOver/NVDA, a full manual accessibility audit and comprehensive independent penetration testing remain unverified. A separate OBS Browser Source is not synchronized; use Window Capture. Full technical and release details are in [validation](validation.md).
