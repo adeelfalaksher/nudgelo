@@ -1,62 +1,59 @@
 # Trialroom
 
-**Predict. Test. Find out together.**
+**Your chat. Runs the lab.**
 
-![JavaScript](https://img.shields.io/badge/JavaScript-ES_modules-305d49) ![Twitch](https://img.shields.io/badge/Twitch-EventSub-7144a0) ![License](https://img.shields.io/badge/License-MIT-305d49)
+A cooperative physics game for Twitch. The audience has five moves to reach a shared target. Chat votes for a control; the winning action changes a real model input. The same equations drive the instrument, measurement and anonymous decision log.
 
-A live science studio for Twitch streamers and curious communities. Set up a physics question, collect one prediction per viewer, lock the inputs, run the model, then reveal what happened and why.
-
-[Open the website](https://trialroom-live.vercel.app/) · [Guide](https://trialroom-live.vercel.app/#/guide) · [Validation](docs/validation.md) · [Hackathon research](docs/research.md)
+[Play Trialroom](https://trialroom-live.vercel.app/#/play) · [Guide](https://trialroom-live.vercel.app/#/guide) · [Validation](docs/validation.md) · [Research](docs/research.md)
 
 ![Trialroom home](docs/assets/home-desktop.png)
 
-## The problem and the approach
+## Why it exists
 
-A science stream should leave room for the audience to think before an explanation arrives. Generic polls record an opinion; a physics simulator supplies a result. Trialroom puts the question, chat prediction, model and measured reveal into one reusable round. There are no points, bets, payments or generated scientific answers.
+A chat poll can collect opinions without giving the audience any agency. Trialroom makes the vote consequential: lengthen a pendulum, increase friction or change a block's density, then see whether the community's idea moves the experiment toward its goal. It gives science and variety creators a short cooperative segment with an explainable outcome.
 
-Three experiments are included:
+This combines a target-seeking game with scientific calibration. It is not a claim to have invented collective voting, Twitch physics or cooperative puzzles. Learning outcomes and engagement gains have not been measured.
 
-- **The pendulum question:** vary string length and bob mass; compare small angle periods.
-- **The last glide:** give two sleds the same speed and different kinetic friction; compare stopping distances.
-- **Float or fall:** vary block and liquid densities; compare equilibrium outcomes, including neutral buoyancy.
+| Mission | Community goal | Controls |
+| --- | --- | --- |
+| Find the rhythm | Pendulum periods within 2% | Lengthen A, shorten A, add mass to A |
+| Stop on the mark | Sled A stops between 1.40 and 1.70 m | Increase friction, reduce friction, increase shared speed |
+| Neither float nor fall | Block B density ratio within 1% of the liquid | Reduce B density, increase B density, increase liquid density |
 
-The images are SVG instruments driven by the same pure model that computes the reported result. The buoyancy settling animation is illustrative; the result is an equilibrium calculation, not computational fluid dynamics.
+## Play without an account
 
-## Try it without an account
+1. Open a mission and read its target and three controls.
+2. Select **Open voting**. Local practice is one voter on this device, explicitly labeled.
+3. Tap A, B or C; changing your choice replaces your vote.
+4. Select **Lock the vote**, then **Apply chat’s move**. Watch the four-second model run and read the result.
+5. Discuss and repeat. Hit the target within five moves, or reset and try a different strategy.
+6. Download the anonymous mission log to keep counts, input changes and calculated measurements.
 
-1. Open Studio, choose a question and change the variables.
-2. Select **Open predictions**, then click A, B or Same in **Local practice**. Changing a choice does not add a second viewer.
-3. Close predictions, select **Run experiment**, and read the result after the eight second run.
-4. Start another round. Try equal pendulum lengths with different masses, then change just one length.
-5. Download the anonymous session to keep your experiments and totals. Import accepts only valid model results and replaces the saved history on this device.
+The unique most-voted control wins. Tied or empty ballots and controls already at their bounds do not consume a move. A Twitch interruption cancels the ballot; partial votes cannot silently spend a move. Navigating away also cancels an unfinished vote. Values cannot change during voting or model execution.
 
-### Start with a question worth testing
+### Explore freely
 
-Select **Try a guided round** for “Does heavier mean faster?” Both strings are 1 m long, while the masses differ. Make a prediction and run it: both calculated periods are 2.006 seconds. Select **Change one variable & retest** to shorten only A's string. The comparison shows A changing to 1.794 seconds while B stays at 2.006 seconds.
+The [experiment studio](https://trialroom-live.vercel.app/#/studio) remains available. Set variables, collect A/B/Same predictions, run an eight-second model, reveal measurements and compare a one-variable retest. The notebook saves up to 50 anonymous rounds locally. Imports validate bounds, totals and recomputed outcomes.
 
-The reveal includes a calculated SVG trace, an honest prediction recap and an explicit before/after table. Several changed inputs are never labeled a controlled comparison. The anonymous notebook shows your latest five rounds and can restore their settings with fresh predictions. On mobile, settings fold away so the question and instrument are easier to reach. The [product review](docs/product-review.md) maps the changes to actual user steps and judging criteria.
+## Connect Twitch
 
-Local practice is functional without Twitch credentials. Its input is labeled and is never presented as real Twitch traffic.
+**Real-channel verification is still pending.** The owner is signed in, but Twitch rejected application creation with “user must have two factor auth enabled to perform this action.” Controlled EventSub browser fixtures verify the integration code, not a live channel session.
 
-## Connect your Twitch channel
+1. Enable two-factor authentication on your Twitch account yourself.
+2. In [Twitch Developer Console](https://dev.twitch.tv/console/apps), register a **Public** client with category **Website Integration**. Add the exact OAuth redirect URI shown in the app, including a trailing slash when shown.
+3. Select **Connect Twitch**, enter the application's public Client ID and authorize `user:read:chat`. Never enter a Client Secret.
+4. Trialroom validates the token and subscribes to `channel.chat.message` on the authorized user's own channel through EventSub WebSocket.
+5. Open voting. Viewers type `!trial a`, `!trial b` or `!trial c`. The displayed control labels define their effects. The studio also accepts `!trial same`, equivalent to C, for its equal-outcome prediction.
 
-Live chat needs a registered Twitch app and your own Twitch authorization. **Authenticated real-channel verification is pending**; the complete browser flow is covered with controlled EventSub fixtures, which are not proof of a live channel test.
-
-1. Sign in at [Twitch Developer Console](https://dev.twitch.tv/console/apps). Twitch requires two factor authentication to register an application.
-2. Register a Website Integration app and add the exact OAuth redirect URI shown in Trialroom’s connection dialog, including the trailing slash when shown.
-3. Select **Connect Twitch**, enter the application's **public Client ID**, and authorize `user:read:chat`.
-4. Trialroom validates the token, opens EventSub WebSocket and subscribes to `channel.chat.message` for the authorized user's own channel.
-5. Open a round. Viewers use `!trial a`, `!trial b`, or `!trial same` in the actual Twitch chat. A viewer may change their choice before the prediction window closes.
-
-No client secret, chat write permission, server credential, paid model API or database is required. Tokens stay in browser memory/sessionStorage, are validated at connection and hourly, and are removed on disconnect. The app never posts chat messages.
-
-If Twitch disconnects, migrates or revokes access, the current Twitch prediction window closes. Reconnect and begin a fresh round. Missed messages are not fabricated or replayed. Duplicate deliveries, stale events, unexpected subscriptions and mismatched channels cannot add votes.
+One current choice per Twitch user. Duplicate deliveries, old messages, wrong subscriptions and mismatched channels cannot add votes. The app never posts chat. Tokens stay in browser memory/sessionStorage, are checked on connection and hourly, and are removed on disconnect. No client secret, paid model API or database is required.
 
 ## Show it on stream
 
-Select **Stage view** in Studio and add this running browser window to OBS using **Window Capture**. Exit with the visible button or Escape. This version does not synchronize an independent OBS Browser Source: opening the site in a second browser creates a separate session. Do not put a token in an OBS URL.
+Open **Stage view** from a mission or Studio, then use **OBS Window Capture** on this running browser window. Mission stage includes the current target, instrument, remaining moves and chat commands. Host settings and account controls are hidden. Escape exits.
 
-## Run locally
+A separate OBS Browser Source does **not** synchronize with the host tab. Do not put a token in an OBS URL. Closing or reloading the page resets in-memory mission progress; download its log first if needed.
+
+## Run and test locally
 
 Node.js 22 or newer:
 
@@ -67,58 +64,57 @@ npm ci
 npm start
 ```
 
-Open `http://localhost:4173/`. Set `PORT` if necessary. No `.env` is needed; public Twitch client configuration is entered in the app.
+Open `http://localhost:4173/`. Set `PORT` if required. No environment secrets are needed; public Client ID configuration is entered in the app. `.env.example` explains that boundary.
 
 ```sh
-npm test                  # physics, voting, import and OAuth boundaries
-npm run test:ui           # isolated browser journeys and axe checks
-npm audit                 # current dependency advisories
+npm test
+npm run test:ui
+npm audit
 ```
 
-`test:ui` starts and stops its own local server. It uses packaged Chromium by default. On an ordinary development machine, set `CHROME_PATH` to an installed compatible Chromium executable if needed. In this constrained cloud runtime, the package tar ownership metadata required safe extraction with no ownership changes; see the validation report. No browser certificate or web security checks were disabled.
+The browser script starts/stops its own local server, exercises actual UI interactions, uses controlled Twitch protocol fixtures, checks responsive layouts and runs axe. Set `CHROME_PATH` for an installed compatible Chromium if necessary. In the constrained cloud environment, package tar files needed extraction with `--no-same-owner`; no certificate or web-security protections were disabled.
 
-The deployed website is static: publish the `public/` directory. `vercel.json` sets the output directory and security headers. API credentials never belong in the repository. GitHub Actions runs the model, audit and browser checks; verify the actual run status before treating it as a release gate.
+Deploy the `public/` directory. `vercel.json` configures static output and CSP/security headers. GitHub Actions runs tests, audit and browser checks. Protected main requires a pull request, successful `model-and-integration`, an up-to-date branch and resolved conversations; administrators cannot bypass the rule.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
-  Viewer[Viewer in Twitch chat] --> Twitch[Twitch EventSub]
-  Host[Streamer browser] --> Auth[Twitch OAuth and Helix]
-  Auth --> Twitch
-  Twitch --> Guard[Command and round validation]
-  Practice[Local practice input] --> Guard
-  Guard --> Round[Prediction round]
-  Params[Locked parameters] --> Model[Pure physics model]
-  Round --> Model
-  Model --> Scene[SVG instrument and result]
-  Scene --> Capture[OBS Window Capture]
-  Round --> History[Anonymous local history]
+  Chat["Twitch chat"] --> Events["OAuth + EventSub"]
+  Events --> Guard["Command / channel / freshness guards"]
+  Practice["Labeled local practice"] --> Guard
+  Guard --> Ballot["One current vote per viewer"]
+  Ballot --> Game["Consensus + five-move mission"]
+  Game --> Model["Bounded physics model"]
+  Model --> Scene["SVG instrument + measurements"]
+  Scene --> Stage["OBS Window Capture"]
+  Game --> Log["Anonymous action export"]
 ```
 
-| File | Responsibility |
+| Module | Responsibility |
 | --- | --- |
-| `public/physics.js` | Parameter bounds, equations, outcomes and positions |
-| `public/round.js` | Round lifecycle, unique votes, deduplication and record validation |
+| `public/game.js` | Missions, consensus, bounded actions, goals, turn history |
+| `public/game-ui.js` | Play flow, control dock, mission stages, results and downloads |
+| `public/home.js` | Interactive model preview and mission discovery |
+| `public/physics.js` | Bounds, equations, outcomes and physical positions |
+| `public/round.js` | Ballot lifecycle, deduplication and notebook import validation |
 | `public/twitch.js` | OAuth state, token validation and EventSub lifecycle |
-| `public/scene.js` | Original physical SVG instruments |
-| `public/app.js` | Accessible routes, controls, history and projection |
-| `public/inquiry.js` | Guided questions, bounded one-variable retests and comparisons |
-| `public/inquiry-ui.js` | Calculated plots, prediction recaps, progress and notebook |
-| `scripts/browser-check.cjs` | Browser interactions, protocol fixture, responsive and axe checks |
+| `public/scene.js` | Original SVG instruments driven by the model |
+| `public/app.js` | Routes, connection UI and free experiment studio |
+| `public/inquiry.js` / `inquiry-ui.js` | Guided questions, controlled retests, traces and notebook |
 
-No remote database schema is needed. The local history schema is `{version: 1, rounds: [{kind, params, source, counts, outcome, at}]}`. It excludes viewer IDs, message IDs, raw chat and tokens. State is bounded to 5,000 voters and 10,000 delivery IDs per round, and 50 saved anonymous rounds. Imports are limited to 100 KB.
+No remote database is needed for this host-browser flow. A ballot holds at most 5,000 voters / 10,000 delivery IDs. Mission exports are `{format:'trialroom-mission',version:1,mission,status,moves,turns}`. Each turn includes anonymous counts, action, before/after inputs, calculated measurement and source label. User IDs, raw chat, delivery IDs and tokens are excluded. Studio JSON uses its separately validated `{version:1,rounds:[...]}` schema.
 
 ## Codex and the team
 
-Created during the Codex x TwitchCon Hackathon. Codex helped research the requirements, compare ideas, implement the models and UI, diagnose the browser fetch binding error, write tests and prepare deployment and documentation. The observed build session ID and submission caveat are in [research](docs/research.md). No runtime AI is needed.
+Built during the Codex x TwitchCon Hackathon. Codex supported research, product revision, models, interface, protocol integration, testing and release. The observed session ID and final-submission caveat are documented in [research](docs/research.md). There are no runtime AI requests.
 
-Team: **Adeel Falak Sher and Raouf Khalid**. Individual contribution roles are not invented.
+Team: **Adeel Falak Sher and Raouf Khalid**. No individual contribution roles are invented.
 
 ## Limits and credits
 
-Physics assumptions are visible beside the instrument and in the guide. This is not a laboratory instrument or proof of learning outcomes. Actual VoiceOver/NVDA, physical phones and an independent comprehensive penetration test have not been completed. Automated checks are bounded evidence.
+The game uses ideal small-angle pendulums, constant kinetic friction and equilibrium buoyancy. Settling motion is illustrative, not computational fluid dynamics. Equations/assumptions and OpenStax references are visible in the app. These are calculated measurements, not sensor readings.
 
-Equations were checked against OpenStax University Physics, linked in the in-app sources page. Original artwork follows physical construction and motion guidance reviewed with Anatomy; no kit geometry audit is claimed. Manrope is redistributed under the included [SIL Open Font License](public/Manrope-OFL.txt). Mobbin references informed hierarchy without copying protected app assets. The [3:2 thumbnail](docs/assets/thumbnail-3x2.jpg) is an AI-assisted marketing illustration, not a screenshot of a live Twitch session.
+Mobbin's Nike Run Club and Duolingo screens were actually inspected for large-readout hierarchy, focused controls, progress and completion feedback. Trialroom uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
 
-Source: [MIT](LICENSE). Final video and 15-image gallery are deferred until the owner's review, as requested. Final Devpost submission is not performed automatically.
+Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. Final video and 15-image gallery remain deferred for the owner's review. Devpost is prepared as a draft, never automatically submitted.

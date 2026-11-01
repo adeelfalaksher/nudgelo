@@ -17,7 +17,7 @@ test('parameter trust boundary rejects coercion, NaN, out of bounds and unknown 
  for(const bad of ['1',NaN,Infinity,0,100,null])assert.throws(()=>parameters('pendulum',{lengthA:bad}));assert.throws(()=>parameters('constructor'));assert.throws(()=>parameters('unknown'));assert.ok(Object.isFrozen(parameters('pendulum')));
 });
 test('chat parser accepts only the complete documented command',()=>{
- assert.equal(parseCommand(' !trial A '),'a');assert.equal(parseCommand('!TRIAL same'),'same');for(const x of ['!trial ab','hello !trial a','!trial a <script>','!trial',null])assert.equal(parseCommand(x),null);
+ assert.equal(parseCommand(' !trial A '),'a');assert.equal(parseCommand('!TRIAL same'),'same');assert.equal(parseCommand('!trial c'),'same');for(const x of ['!trial ab','hello !trial a','!trial a <script>','!trial',null])assert.equal(parseCommand(x),null);
 });
 test('round lifecycle and one voter can change their choice',()=>{
  const r=new Round();assert.throws(()=>r.run());r.open(30,1000);assert.ok(r.vote('u','a','d1',1100,1100));assert.ok(r.vote('u','b','d2',1200,1200));assert.deepEqual(r.counts(),{a:0,b:1,same:0});assert.equal(r.vote('v','a','d2',1200,1200),false);r.close();assert.equal(r.vote('v','a','d3',1300,1300),false);r.run(1400);assert.throws(()=>r.open());r.reveal();assert.equal(r.record().counts.b,1);

@@ -1,29 +1,23 @@
-# Trialroom
-<!-- impeccable:product-schema 1 -->
+# Trialroom product contract
 
-## Platform
-web
+Audience: Twitch science/variety creators and viewers who want to solve a short puzzle together.
 
-## Stack
-Delegated by the user's master prompt. Static HTML, CSS and browser JavaScript on Vercel. Native Twitch EventSub WebSocket and Helix API. No runtime model, paid API or database is needed.
+Core promise: the community has five moves to reach an explicit physical target. Each unique most-voted action changes exactly one bounded input. The same deterministic model supplies the instrument and measured result.
 
-## Users
-Selected target audience, inferred from independent research: science streamers and curious Twitch viewers. Host short, repeatable physics experiments with predictions from chat.
+Acceptance:
 
-## Product Purpose
-Make a science explanation a shared experiment: set parameters, ask a testable question, accept one prediction per viewer, lock predictions, run the model, and reveal an explanation with actual calculated measurements.
+- Three distinct solvable missions: synchronized pendulums, precision stopping, neutral buoyancy.
+- One vote per viewer; a newer choice replaces the old one; duplicate/stale/wrong-channel messages cannot add votes.
+- No-vote, tie and at-bound control decisions do not spend moves. Network interruption cancels Twitch voting without applying partial results.
+- Explicit ready, voting, locked, testing, feedback, win and loss states. No resets or mission switches while a turn is active.
+- Labeled one-voter local practice, authenticated own-channel EventSub path and no chat-writing permission.
+- Visible commands on Stage view, original moving instruments, model assumptions, keyboard/focus support and reduced motion.
+- Mobile navigation and reachable primary action; no horizontal overflow at 320–1920 CSS px.
+- Anonymous downloadable action logs. No token, raw chat or viewer identity in downloads/source.
+- Free studio retains guided predictions, one-variable retests and the validated local notebook.
 
-## Positioning
-An instrument and round lifecycle, rather than a general chat bot or generic poll overlay. Physics, visual motion and explanation share one deterministic model. No Channel Points, stakes or wagering.
+No backend is necessary for the single host-browser flow. Independent OBS Browser Source synchronization, cloud sessions, paid inference, guaranteed learning gains and untested live Twitch operation are not promised.
 
-## Capabilities and Constraints
-Three idealized experiments: pendulum period, friction race and buoyancy. Local practice is explicitly distinct from Twitch input. A streamer connects their own channel using a registered Twitch public client and the user:read:chat scope. No chat write scope. The app never sends chat messages. Projection view is captured with OBS Window Capture; no fake remote overlay synchronization is promised. Browser state and exported anonymous round records are local.
+Release gate: model tests, real UI journeys, protocol fixtures, responsive/accessibility checks, dependency audit, required CI, protected Preview and independent public release checks. Disclose actual blockers and incomplete tests.
 
-## Brand Commitments
-User requests premium iOS inspired web styling, clear imagery, responsive home, hero and mobile bottom navigation. Original identity and figures; do not copy protected reference artwork.
-
-## Evidence on Hand
-Official hackathon rules and Twitch docs. NORC's research on NOVA's Twitch science streams supports the audience choice; no Trialroom user study or engagement improvement has been measured. No testimonial or active audience count may be invented.
-
-## Accessibility & Inclusion
-Keyboard controls, legible high contrast choices, text explanations and reduced motion. Real VoiceOver/NVDA and physical phone checks require appropriate devices; do not claim them from automation.
+Submission: maintain project 1522696 as a Devpost draft. No invented personal answers. Do not final-submit or produce final video / 15-image gallery until owner review approval.
