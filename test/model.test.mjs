@@ -28,3 +28,7 @@ test('late, stale, future and pre round votes are not counted',()=>{
 test('anonymous export has no identity and import rejects altered outcomes',()=>{
  const r=new Round();r.open(30,1000);r.vote('private-user-id','a','private-delivery',1100,1100);r.close();r.run(1200);r.reveal();const record=r.record();assert.ok(!JSON.stringify(record).includes('private'));assert.deepEqual(validateHistory({version:1,rounds:[record]}),[record]);assert.throws(()=>validateHistory({version:1,rounds:[{...record,outcome:'b'}]}));assert.throws(()=>validateHistory({version:1,rounds:[{...record,counts:{a:-1,b:0,same:0}}]}));
 });
+
+test('renamed nudge commands preserve legacy commands and reject partial or embedded input',()=>{
+ for(const command of ['!nudge','!trial']){assert.equal(parseCommand(command+' a'),'a');assert.equal(parseCommand(command+' c'),'same');assert.equal(parseCommand(command+' same'),'same');assert.equal(parseCommand(command+' a extra'),null);assert.equal(parseCommand('hello '+command+' a'),null);}
+});

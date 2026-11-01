@@ -2,5 +2,5 @@
 // Set the application's own Client ID after its Twitch registration is complete.
 export const APP_CONFIG = Object.freeze({
   twitchClientId: '',
-  twitchRedirectUri: 'https://trialroom-live.vercel.app/'
+  twitchRedirectUri: 'https://nudgelo.vercel.app/'
 });

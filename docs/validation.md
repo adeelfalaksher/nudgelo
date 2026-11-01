@@ -75,3 +75,9 @@ The source CI [Checks 41330180700](https://github.com/adeelfalaksher900-creator/
 The current QA screenshots show the revised interface; they are not generated product imagery or the held 15-image gallery. The existing marketing thumbnail/video/gallery have not been regenerated for this redesign.
 
 The guide now separates one-tap solo play, local chat-vote rehearsal and real-channel hosting. The privacy page describes the shared public identifier without asking players to supply it. The studio's status region no longer rewrites unchanged text on every timer update; a MutationObserver browser regression covers that behavior. The final guide/status follow-up and release identifiers are recorded in its pull request.
+
+## Nudgelo rebrand
+
+The existing project is now called Nudgelo. The interface, metadata, help copy, downloads, npm package and public application configuration use the new name. Stable storage keys, the existing GitHub repository and legacy commands remain compatible. `!nudge` is the primary displayed command; a strict-parser regression covers both names and rejects embedded/partial commands.
+
+35 Node tests, 32 local browser journeys, 72 route/width combinations and 12 axe states passed. There were no captured application errors or detected tagged violations. Eleven contrast states and five aria states remain incomplete. Dependency audit reported zero known advisories. The test run found and corrected secondary-text contrast and a phone heading overflow before passing. Required CI and release details are recorded in the rebrand pull request. Real Twitch remains pending; no final media or hackathon submission was produced.
