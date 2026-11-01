@@ -10,7 +10,7 @@ A good science stream gives the audience a reason to form a hypothesis before th
 
 ## What it does
 
-Trialroom is a browser experiment studio. A host chooses a pendulum, friction or buoyancy question, changes the parameters, opens a prediction window, then locks the choices and runs the model. The result includes calculated measurements, the equation and its assumptions.
+Trialroom is a browser experiment studio. A host chooses a pendulum, friction or buoyancy question, changes the parameters, opens a prediction window, then locks the choices and runs the model. The result includes calculated measurements, the equation and its assumptions. Guided questions help a new host begin. One-variable retests compare before/after measurements, while calculated SVG traces make the model visible. An anonymous notebook restores earlier settings with fresh predictions.
 
 Viewers participate with `!trial a`, `!trial b` or `!trial same`. One viewer has one current choice; a changed prediction replaces the earlier choice. No points or stakes are involved. A clearly labeled local practice mode runs without an account. Stage view can be captured with OBS Window Capture. Anonymous round records can be saved, downloaded and imported.
 
@@ -28,7 +28,7 @@ The browser regression check also found a bug that a Node mock did not catch: na
 
 ## Accomplishments
 
-Three experiments run through a complete local practice round, from parameter selection to measured reveal and anonymous export. The interface includes an original animated physical instrument, a projection layout, a mobile navigation bar, keyboard focus and a reduced-motion path. Thirteen model/protocol tests and nine browser journeys passed. Twenty route/width combinations had no horizontal overflow. Seven automated accessibility states had no detected violations, with incomplete checks documented in the repository.
+Three experiments run through a complete local practice round, from parameter selection to measured reveal and anonymous export. The interface includes an original animated physical instrument, a projection layout, a mobile navigation bar, keyboard focus and a reduced-motion path. Seventeen model/protocol tests and fifteen browser journeys passed. Forty route/width combinations had no horizontal overflow. Eight automated accessibility states had no detected violations, with incomplete checks documented in the repository. A keyboard regression reproduced and fixed a skip-link bug that changed the page instead of focusing its content.
 
 ## What we learned
 

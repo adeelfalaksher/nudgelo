@@ -11,3 +11,9 @@ Four signature components: physical twin pendulum; A/B/Same prediction strip; me
 Anatomy informed physical construction, tone hierarchy, depth, bearings, calibration ticks and motion from one model. The SVG implementation is original, not a kit geometry audit; no Anatomy audit or native 3D certification is claimed. Each experiment has a different physical scene; none is a static product photograph.
 
 12ui 0.2.131 was installed and draft attempted. It stopped before generation at sign in. No 12ui design run or image conversion is claimed. Native image generation supplied the design reference and requested marketing thumbnail. VON runtime records say Open Generative AI and screenshot-to-code were removed by the user; they were not reinstalled.
+
+## Guided release review
+
+Fresh Mobbin screens were viewed for [Brilliant introduction](https://mobbin.com/screens/26456629-8901-4f2c-85ef-65b1b99b0ad5), [interactive lesson](https://mobbin.com/screens/0806e864-e953-46f7-8410-7ea00e69aac7), [completed lesson](https://mobbin.com/screens/ad8e0fa1-5d4f-4b8f-8037-9b5cb3b23cf3), and [Teams poll response/results](https://mobbin.com/screens/0385434b-1a69-4cb1-b02d-9d0e213405b7). The useful patterns were a single question, visible progress, a clear next action and readable response totals. Their assets and complete designs were not copied. Trialroom retains its original instruments, typography and warm paper/forest/brass palette.
+
+The guided release adds a focused starting question, accessible four-step progress, a mobile settings disclosure, honest prediction recap, model-derived graphs and a real comparison after changing exactly one model input. A notebook makes saved rounds visible and reusable. Scientific data is rendered as SVG from equations, not generated imagery.

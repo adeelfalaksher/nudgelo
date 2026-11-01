@@ -30,6 +30,12 @@ The images are SVG instruments driven by the same pure model that computes the r
 4. Start another round. Try equal pendulum lengths with different masses, then change just one length.
 5. Download the anonymous session to keep your experiments and totals. Import accepts only valid model results and replaces the saved history on this device.
 
+### Start with a question worth testing
+
+Select **Try a guided round** for “Does heavier mean faster?” Both strings are 1 m long, while the masses differ. Make a prediction and run it: both calculated periods are 2.006 seconds. Select **Change one variable & retest** to shorten only A's string. The comparison shows A changing to 1.794 seconds while B stays at 2.006 seconds.
+
+The reveal includes a calculated SVG trace, an honest prediction recap and an explicit before/after table. Several changed inputs are never labeled a controlled comparison. The anonymous notebook shows your latest five rounds and can restore their settings with fresh predictions. On mobile, settings fold away so the question and instrument are easier to reach. The [product review](docs/product-review.md) maps the changes to actual user steps and judging criteria.
+
 Local practice is functional without Twitch credentials. Its input is labeled and is never presented as real Twitch traffic.
 
 ## Connect your Twitch channel
@@ -97,6 +103,8 @@ flowchart TD
 | `public/twitch.js` | OAuth state, token validation and EventSub lifecycle |
 | `public/scene.js` | Original physical SVG instruments |
 | `public/app.js` | Accessible routes, controls, history and projection |
+| `public/inquiry.js` | Guided questions, bounded one-variable retests and comparisons |
+| `public/inquiry-ui.js` | Calculated plots, prediction recaps, progress and notebook |
 | `scripts/browser-check.cjs` | Browser interactions, protocol fixture, responsive and axe checks |
 
 No remote database schema is needed. The local history schema is `{version: 1, rounds: [{kind, params, source, counts, outcome, at}]}`. It excludes viewer IDs, message IDs, raw chat and tokens. State is bounded to 5,000 voters and 10,000 delivery IDs per round, and 50 saved anonymous rounds. Imports are limited to 100 KB.
