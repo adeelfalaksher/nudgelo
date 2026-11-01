@@ -5,3 +5,6 @@
 
 .projection .control-dock{display:block;padding:0}.projection .control-dock>:not(.game-choices):not(.ballot-meta){display:none}.projection .game-choices{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1000px;margin:auto}.projection .ballot-meta{max-width:1000px;margin:10px auto}.projection .game-choices code{font-size:13px}.projection .game-choices small{display:block}.projection .play-layout{gap:16px}
 @media(max-width:600px){.projection .game-choices{grid-template-columns:1fr}.projection .game-choices button{min-height:66px}.projection .game-choices small{display:inline}}
+
+@media(max-width:760px){body:not(.projection) #game-action{position:fixed;z-index:29;bottom:92px;left:24px;width:calc(100% - 48px);min-height:52px;box-shadow:0 6px 24px #203b2d30}.play-room{padding-bottom:64px}.control-dock .game-window{margin-bottom:0}.game-choices{scroll-margin-bottom:180px}.mission-canvas{scroll-margin-top:16px}}
+@media(max-width:380px){body:not(.projection) #game-action{left:16px;width:calc(100% - 32px)}}

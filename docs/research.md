@@ -39,3 +39,15 @@ Browser-only implicit flow uses a public client ID, state verification and exact
 ## Codex evidence
 
 Observed current Codex runtime thread/session ID: `01a1863a-9282-75ec-8768-4e6badcb1066`. This is the environment's actual ID, not a generated placeholder. Owner should compare it with /status before final submission. Record implementation decisions, tests and revisions in the repository. Never fabricate screenshots of Codex or claim a test not run.
+
+## Revised decision: give the audience actual agency
+
+The owner completed Devpost registration and created project 1522696 / submission 1277168 for this hackathon. That is verified registration, not final submission or permission to invent personal eligibility answers.
+
+A fresh comparison found [ChaosForge](https://devpost.com/software/chaosforge-twitch-chaos-engine-with-openai-codex), [ChatTugArena](https://devpost.com/software/chat-tug-arena), [RallyRoom](https://devpost.com/software/rallyroom-one-chat-one-mission), [Stream Plays Puzzle](https://wendelscardua.itch.io/stream-plays-puzzle) and the earlier puzzles-with-chat repository. Their descriptions show that chat physics, majority actions and cooperative missions already exist. Their functionality and traction were not independently tested.
+
+Five directions were reconsidered: a general rescue co-op (overlaps RallyRoom), a music controller (overlaps Chat Choir/Pulse Choir), a caption director (audio/model infrastructure and existing tools), a moderation assistant (wider permissions and uncertain usefulness), and a target-seeking physics calibration game. The last option reuses verified equations while correcting the studio's central weakness: predictions alone do not let the audience change what happens.
+
+Trialroom now asks the community to hit a physical target within five bounded actions. A chosen control changes one input, the model animates it and a reproducible action log shows the consequence. Multiple buoyancy strategies and a pendulum mass misconception provide testable choices. This is a specific differentiator, not a claim of first invention or a guaranteed winning entry.
+
+Twitch application registration was attempted on the owner's signed-in account with the production redirect and Public client selected. Twitch returned: “user must have two factor auth enabled to perform this action”. Enabling 2FA and owner OAuth require the owner's involvement. Do not claim a registered client, actual chat test or fulfilled Twitch demo requirement until those steps succeed. Anonymous unofficial IRC access is not substituted for documented authenticated EventSub.

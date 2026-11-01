@@ -2,8 +2,8 @@ import {EXPERIMENTS, parameters, result} from './physics.js';
 export const CHOICES = ['a','b','same'];
 export function parseCommand(text) {
   if (typeof text !== 'string' || text.length > 50) return null;
-  const match = /^!trial\s+(a|b|same)\s*$/i.exec(text.trim());
-  return match?.[1].toLowerCase() ?? null;
+  const match = /^!trial\s+(a|b|same|c)\s*$/i.exec(text.trim());
+  const choice=match?.[1].toLowerCase();return choice==='c'?'same':choice??null;
 }
 export class Round {
   constructor(kind='pendulum', values={}) {this.kind=kind;this.params=parameters(kind,values);this.phase='setup';this.votes=new Map();this.deliveries=new Set();this.openedAt=0;this.deadline=0;this.startedAt=0;this.source='practice';}
