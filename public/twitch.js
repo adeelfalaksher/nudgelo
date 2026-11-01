@@ -17,7 +17,7 @@ export function oauthReturn(hash,storage=sessionStorage,now=Date.now()){
   const q=new URLSearchParams(hash.replace(/^#/,''));
   if(!q.has('access_token')&&!q.has('error'))return null;
   let pending;try{pending=JSON.parse(storage.getItem('trialroom-oauth')||'null');}catch{}storage.removeItem('trialroom-oauth');
-  if(!pending||q.get('state')!==pending.state||now-pending.at>600000||now<pending.at)throw new Error('Twitch sign in expired or could not be verified. Connect again.');
+  if(!pending||!Number.isFinite(pending.at)||typeof pending.clientId!=='string'||!/^[a-z0-9]{10,64}$/i.test(pending.clientId)||q.get('state')!==pending.state||now-pending.at>600000||now<pending.at)throw new Error('Twitch sign in expired or could not be verified. Connect again.');
   if(q.has('error'))throw new Error('Twitch access was not granted. You can keep using local practice.');
   const token=q.get('access_token');if(!/^[a-z0-9]{10,512}$/i.test(token))throw new Error('Twitch returned an invalid session. Connect again.');
   return {token,clientId:pending.clientId};
