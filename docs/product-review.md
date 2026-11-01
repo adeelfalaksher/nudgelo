@@ -58,3 +58,13 @@ The official Devpost criteria were retrieved again during this review: Innovatio
 17 unit tests and 15 browser journeys pass. Forty route/width combinations have no document horizontal overflow. Eight axe states have no detected WCAG-tagged violations, with incomplete checks retained. Dependency audit reports zero known advisories. The keyboard skip-link routing bug was first reproduced by a failing browser assertion and then fixed and retested.
 
 The source, [browser report](browser-report.json), [validation record](validation.md) and setup instructions describe the limits. This is bounded testing, not comprehensive penetration testing, full accessibility certification or proof of a functioning authenticated Twitch session. Final video and the 15-image gallery remain deferred until the owner's project review.
+
+## Independently verified live flow
+
+The released canonical website was opened in an independent cloud browser. Steps 1–6 were exercised through a complete two-round local practice sequence: guided setup, prediction, lock, run, reveal, one-variable retest, actual before/after measurements, anonymous download and notebook restore. The public deployment's 13 files also exactly matched the tested source over HTTPS. This verifies local practice on Production, not authenticated Twitch participation.
+
+![Live equal-length reveal](assets/review/04-live-first-reveal.jpg)
+
+![Live one-variable retest](assets/review/05-live-retest-reveal.jpg)
+
+![Live comparison table](assets/review/06-live-comparison.jpg)
