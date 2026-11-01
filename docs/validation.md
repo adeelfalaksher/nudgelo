@@ -56,6 +56,10 @@ Existing project 1522696 / submission 1277168 was updated, not duplicated. Name,
 
 The hackathon entry is visibly **Draft** and `submitted_at` is null. Devpost's project-save API made its separate portfolio record public at https://devpost.com/software/trialroom ; this is not a final hackathon submission. No final Submit button or rule-agreement checkbox was activated.
 
-The 3:2 thumbnail is an actual app screenshot, not generated functionality. Full-resolution source: 1536×1024 JPEG. A 768×512 upload variant was captured for the direct connector after the streaming upload hit a proxy timeout. Upload returned success with background processing; no successful upload was retried. Confirm its appearance on the draft before final submission.
+The 3:2 thumbnail is an actual app screenshot, not generated functionality. Full-resolution source: 1536×1024 JPEG. A 768×512 upload variant was captured for the direct connector after the streaming upload hit a proxy timeout. Upload returned success with background processing; no successful upload was retried. The draft subsequently displayed the uploaded thumbnail with a completed image load.
 
 The final under-three-minute video must show actual Twitch operation and Codex build footage. Final video and 15-image gallery remain deferred for owner review. Team membership currently lists only the owner account; the second teammate still needs the owner's invitation/acceptance workflow.
+
+## Manual contrast follow-up
+
+Manual review of the SVG block faces found that white text on the brass B face (#bd914d) had a 2.87:1 contrast ratio. B now uses dark ink #1b2420; A keeps its white label on green (4.83:1). This is a targeted readability correction, not a claim to have completed all manual accessibility checks. The full game/Preview/Production evidence above describes the feature release; the color-only follow-up and final release status are recorded on its GitHub pull request.
