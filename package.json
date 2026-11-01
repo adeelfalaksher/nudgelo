@@ -1,0 +1,19 @@
+{
+  "name": "trialroom",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:ui": "node scripts/browser-check.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^141.0.0",
+    "axe-core": "^4.11.0",
+    "playwright": "^1.56.1"
+  }
+}
