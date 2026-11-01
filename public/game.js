@@ -45,7 +45,7 @@ export class LabGame {
   constructor(mission='sync') {
     if(!Object.hasOwn(MISSIONS,mission))throw new Error('Choose an available mission.');
     this.mission=mission;this.spec=MISSIONS[mission];this.params=parameters(this.spec.kind,this.spec.params);
-    this.phase='ready';this.moves=0;this.limit=5;this.turns=[];this.ballot=null;this.message='Choose together. Test the idea. Hit the target.';
+    this.phase='ready';this.moves=0;this.limit=5;this.turns=[];this.ballot=null;this.lastCounts={a:0,b:0,same:0};this.lastSource=null;this.message='Choose together. Test the idea. Hit the target.';
   }
   open(source='practice',seconds=30,now=Date.now()) {
     if(!['ready','feedback'].includes(this.phase))throw new Error('Finish this turn first.');
@@ -57,19 +57,19 @@ export class LabGame {
   close(){if(this.phase==='voting'){this.ballot.close();this.phase='locked';}}
   cancel(message='Vote cancelled. No move spent.') {
     if(!['voting','locked'].includes(this.phase))return;
-    this.ballot.close();this.phase='feedback';this.message=message;
+    this.ballot.close();this.ballot=null;this.lastCounts={a:0,b:0,same:0};this.lastSource=null;this.phase='feedback';this.message=message;
   }
   apply(now=Date.now()) {
     if(this.phase!=='locked')throw new Error('Close voting before applying a move.');
     const counts=this.ballot.counts(),decision=consensus(counts);
-    if(!decision.choice){this.phase='feedback';this.message=decision.reason;return null;}
+    if(!decision.choice){this.lastCounts={...counts};this.lastSource=this.ballot.source;this.ballot=null;this.phase='feedback';this.message=decision.reason;return null;}
     const [key,delta,label]=this.spec.actions[CHOICES.indexOf(decision.choice)];
     const [,,min,max]=EXPERIMENTS[this.spec.kind].fields.find(f=>f[0]===key);
     const next=Math.round(Math.max(min,Math.min(max,this.params[key]+delta))*10000)/10000;
-    if(next===this.params[key]){this.phase='feedback';this.message=label+' is already at its limit. No move spent. Choose another control.';return null;}
+    if(next===this.params[key]){this.lastCounts={...counts};this.lastSource=this.ballot.source;this.ballot=null;this.phase='feedback';this.message=label+' is already at its limit. No move spent. Choose another control.';return null;}
     const before={...this.params};this.params=parameters(this.spec.kind,{...before,[key]:next});this.moves++;
     const turn={move:this.moves,choice:decision.choice,action:label,key,before,after:{...this.params},counts,source:this.ballot.source,measurement:this.spec.measure(this.params),goalMet:this.spec.win(this.params),at:new Date(now).toISOString()};
-    this.turns.push(turn);this.phase='running';this.startedAt=now;this.message=label+': '+before[key]+' → '+next+'. Measuring the model…';
+    this.turns.push(turn);this.lastCounts={...counts};this.lastSource=this.ballot.source;this.ballot=null;this.phase='running';this.startedAt=now;this.message=label+': '+before[key]+' → '+next+'. Measuring the model…';
     return structuredClone(turn);
   }
   finish(){
@@ -77,6 +77,6 @@ export class LabGame {
     this.phase=this.spec.win(this.params)?'won':this.moves>=this.limit?'lost':'feedback';
     this.message=this.phase==='won'?'Target reached. You solved it together.':this.phase==='lost'?'Five moves used. Reset and try a different strategy.':this.spec.clue;
   }
-  counts(){return this.ballot?.counts()??{a:0,b:0,same:0};}
+  counts(){return {...(this.ballot?.counts()??this.lastCounts)};}
   export(){return {format:'trialroom-mission',version:1,mission:this.mission,status:this.phase,moves:this.moves,turns:structuredClone(this.turns)};}
 }
