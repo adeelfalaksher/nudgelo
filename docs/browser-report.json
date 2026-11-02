@@ -1,10 +1,12 @@
 {
   "journeys": [
+    "Leave a running studio experiment: it finishes without errors, saves once and restores its result on return",
     "Keyboard skip link focuses content without changing routes",
     "Home instrument actually moves",
     "Unchanged studio status is not repeatedly announced by timer updates",
     "Local prediction change, locked values, run, reveal, save",
     "Anonymous export",
+    "Valid anonymous session import round-trips exported data and survives reload",
     "Stage view and Escape exit",
     "Guided mass question, correct local recap and calculated model trace",
     "One-variable retest compares measurements against the actual previous round",
@@ -12,6 +14,7 @@
     "Friction experiment run",
     "Buoyancy experiment run",
     "Malformed import rejected",
+    "Oversized and forged imports preserve the existing notebook and reset the file input",
     "Player connection dialog has no Client ID form and truthfully reports missing app setup",
     "Mobile settings disclosure opens and closes with the keyboard",
     "Reduced motion shows static result",

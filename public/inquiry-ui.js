@@ -55,7 +55,7 @@ export function renderTrace(root,kind,params){
   if(kind==='buoyancy')return;
   const svgNS='http://www.w3.org/2000/svg',svg=document.createElementNS(svgNS,'svg');svg.setAttribute('viewBox','0 0 640 180');svg.setAttribute('role','img');
   const name=kind==='pendulum'?'Swing angle':'Distance traveled';
-  svg.setAttribute('aria-label',`${name} for A and B over eight model seconds. A is a solid green line; B is a dashed brass line. Numerical outcomes are listed above.`);
+  svg.setAttribute('aria-label',`${name} for A and B over eight model seconds. A is a solid line; B is a dashed line. Numerical outcomes are listed above.`);
   const make=(tag,attrs,text)=>{const n=document.createElementNS(svgNS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n;};
   const r=result(kind,params),min=kind==='pendulum'?-10:0,max=kind==='pendulum'?10:Math.max(r.a,r.b)*1.05;
   const x=t=>56+t/8*566,y=value=>18+(max-value)/(max-min)*124;
