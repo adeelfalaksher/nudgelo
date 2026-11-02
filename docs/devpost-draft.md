@@ -36,7 +36,7 @@ Browser checks caught a native fetch binding bug that Node mocks missed. Later g
 
 The three targets are reachable through the actual UI and model. Browser checks also verify a five-move loss, anonymous action export, Stage view commands, no-vote handling, navigation cancellation and controlled Twitch tie/disconnect behavior. The existing studio's guided retest remains functional.
 
-35 model/protocol tests and 32 browser journeys passed. 72 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
+38 model/protocol/security tests and 35 browser journeys passed. 72 route/width combinations at 320–1920 CSS pixels had no horizontal overflow. Twelve automated accessibility states had no detected WCAG-tagged violations; incomplete checks remain documented. Dependency audit reported no known advisories. These are bounded engineering checks, not accessibility or penetration-test certification.
 
 ## What we learned
 
