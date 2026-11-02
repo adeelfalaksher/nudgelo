@@ -2,7 +2,7 @@
 
 **Tagline:** Your chat runs the lab. Five moves to solve a physics mission together—vote, change a real model input and discover what gets you to the target.
 
-**Saved status:** Story, technologies and links saved to project 1522696. Hackathon submission 1277168 remains Draft and unsubmitted. Devpost separately made the portfolio page public. Factual Additional info answers were saved; owner personal/legal answers remain. Thumbnail upload succeeded with background processing.
+**Saved status:** Devpost reports hackathon submission 1277168 as Submitted on November 2, 2026. The public project contains 15 captioned screenshots, the 3:2 thumbnail and the supplied 2:19 YouTube walkthrough. Real-channel verification remains pending.
 
 ## Inspiration
 
@@ -50,11 +50,11 @@ Complete real-channel verification, record the actual Twitch-and-Codex demonstra
 
 **Live:** https://nudgelo.vercel.app/
 
-**Code:** https://github.com/adeelfalaksher900-creator/trialroom
+**Code:** https://github.com/adeelfalaksher900-creator/nudgelo
 
 **Built with:** OpenAI Codex, JavaScript, HTML, CSS, SVG, Twitch API, Twitch EventSub, OAuth, WebSocket, Vercel, Playwright, axe-core.
 
-**Team:** Adeel Falak Sher and Raouf Khalid. Individual roles are not invented.
+**Submitter:** Adeel Falak Sher (Individual on Devpost).
 
 ## Additional information preparation
 
@@ -63,5 +63,5 @@ Complete real-channel verification, record the actual Twitch-and-Codex demonstra
 - Technology: Codex supported research, implementation, testing and release; the Twitch OAuth/Helix/EventSub adapter reads audience control commands. Actual channel verification is pending owner 2FA.
 - Community use: open a mission during a stream, show the lab with OBS Window Capture, collect A/B/C commands and apply the chosen control until the group hits the target or uses its five moves.
 - Personal survey, residence and legal eligibility answers belong to the owner and are not inferred.
-- Required public YouTube video under three minutes must show actual Twitch operation and Codex build footage. Video and the 15-image gallery remain deferred until project review approval.
-- Save as a draft only. Do not perform final submission.
+- Demo: https://www.youtube.com/watch?v=Bj7RRNe2IvA (2:19). The entry form permits public or unlisted video without a password. This walkthrough demonstrates the local application and explicitly discloses that Twitch is unconfigured. Actual Twitch operation and Codex build footage remain outstanding video requirements.
+- The owner authorized final submission and Devpost now reports the entry as Submitted. Preserve this status when correcting project details.
