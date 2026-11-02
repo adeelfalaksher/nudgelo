@@ -38,7 +38,7 @@ The [experiment studio](https://nudgelo.vercel.app/#/studio) remains available. 
 
 ### Name and compatibility
 
-Nudgelo is the renamed project previously called Trialroom. The existing GitHub repository and old live alias remain available. New visible commands use `!nudge`; `!trial` remains accepted. Storage keys and the version-1 `trialroom-mission` export identifier are intentionally unchanged so existing sessions remain compatible on their original origin. Browser-local notebooks do not automatically transfer between domains; use anonymous export/import to move studio records.
+Nudgelo is the renamed project previously called Trialroom. The canonical repository is `adeelfalaksher900-creator/nudgelo` and the live site is `nudgelo.vercel.app`. The old repository URL redirects and the old live alias remains available. New visible commands use `!nudge`; `!trial` remains accepted. Storage keys and the version-1 `trialroom-mission` export identifier are intentionally unchanged so existing sessions remain compatible on their original origin. Browser-local notebooks do not automatically transfer between domains; use anonymous export/import to move studio records.
 
 ## Connect Twitch
 
@@ -63,8 +63,8 @@ A separate OBS Browser Source does **not** synchronize with the host tab. Do not
 Node.js 22 or newer:
 
 ```sh
-git clone https://github.com/adeelfalaksher900-creator/trialroom.git
-cd trialroom
+git clone https://github.com/adeelfalaksher900-creator/nudgelo.git
+cd nudgelo
 npm ci
 npm start
 ```
@@ -116,7 +116,7 @@ No remote database is needed for this host-browser flow. A ballot holds at most 
 
 Built during the Codex x TwitchCon Hackathon. Codex supported research, product revision, models, interface, protocol integration, testing and release. The observed session ID and final-submission caveat are documented in [research](docs/research.md). There are no runtime AI requests.
 
-Team: **Adeel Falak Sher and Raouf Khalid**.
+Devpost lists **Adeel Falak Sher** as the individual submitter.
 
 ## Limits and credits
 
@@ -124,4 +124,4 @@ The game uses ideal small-angle pendulums, constant kinetic friction and equilib
 
 Mobbin’s [Headspace home](https://mobbin.com/screens/9fb74046-d5b5-4af9-9204-78cacdd67661) and [Duolingo activity](https://mobbin.com/screens/7bb8916e-d373-43c3-9614-70afaf9abfed) screens were inspected for clear discovery, approachable color, focused actions and progress feedback. The current implementation uses bright surfaces, blue actions, a live interactive toy and original blue/coral instruments. Nudgelo uses original branding, SVG instruments, data and implementation. Manrope is bundled under its [SIL Open Font License](public/Manrope-OFL.txt); source code is [MIT](LICENSE).
 
-Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. Final video and 15-image gallery remain deferred for the owner's review. The hackathon entry remains Draft and has not been submitted. Devpost separately made the saved portfolio project public; factual submission fields are saved, while personal/legal answers and teammate membership remain for the owner.
+Real phones, VoiceOver/NVDA and an independent comprehensive penetration test have not been completed. Automated checks are bounded engineering evidence. The [2:19 narrated walkthrough](https://www.youtube.com/watch?v=Bj7RRNe2IvA) and 15 captioned application screenshots are published on [Devpost](https://devpost.com/software/trialroom). Devpost reports the hackathon entry as Submitted. The video demonstrates the local application and explicitly states that actual Twitch operation is unconfigured and unverified.
